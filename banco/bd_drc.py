@@ -84,7 +84,7 @@ for i in range(len(banco_int)):
    
     pesoi = banco_int.to_numpy()[i][5]
     pesof = banco_int.to_numpy()[i][6]
-    sql3="INSERT INTO exame_fisico(peso_inicial, peso_final, imc, pas_inicial, pad_inicial,pad_final,pas_final, altura, classe_imc, dt_pressao_inicial,dt_pressao_final,sedentarismo,etilismo,tabagismo) VALUES('"+pesoi+"','"+pesof+"','"+banco_int.get_values()[i][33]+"','"+str(banco_int.get_values()[i][37])+"','"+str(banco_int.get_values()[i][38])+"','"+str(banco_int.get_values()[i][41])+"','"+str(banco_int.get_values()[i][40])+"','"+(banco_int.get_values()[i][7])+"','"+classe_imc+"','"+banco_int.get_values()[i][36]+"','"+banco_int.get_values()[i][39]+"','"+banco_int.get_values()[i][14]+"','"+banco_int.get_values()[i][15]+"','"+banco_int.get_values()[i][16]+"');"
+    sql3="INSERT INTO exame_fisico(peso_inicial, peso_final, imc, pas_inicial, pad_inicial,pad_final,pas_final, altura, classe_imc, dt_pressao_inicial,dt_pressao_final,sedentarismo,etilismo,tabagismo) VALUES('"+pesoi+"','"+pesof+"','"+banco_int.to_numpy()[i][33]+"','"+str(banco_int.to_numpy()[i][37])+"','"+str(banco_int.to_numpy()[i][38])+"','"+str(banco_int.to_numpy()[i][41])+"','"+str(banco_int.to_numpy()[i][40])+"','"+(banco_int.to_numpy()[i][7])+"','"+classe_imc+"','"+banco_int.to_numpy()[i][36]+"','"+banco_int.to_numpy()[i][39]+"','"+banco_int.to_numpy()[i][14]+"','"+banco_int.to_numpy()[i][15]+"','"+banco_int.to_numpy()[i][16]+"');"
     cursor.execute(sql3) 
     cursor.execute('SELECT last_insert_id() INTO @exame_fisico')
     cursor.fetchone()
