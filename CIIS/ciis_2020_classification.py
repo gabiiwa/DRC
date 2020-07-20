@@ -9,13 +9,14 @@ from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
 from sklearn.svm import SVC
-from xgboost import XGBRegressor
 from xgboost import XGBClassifier
 
 
 from read_data import *
 from sklearn import metrics
-from utils import confusion_matrix_pretty_print
+from utils.confusion_matrix_pretty_print import plot_confusion_matrix_from_data
+from sklearn.metrics import classification_report
+
 
 #%%
 pd.options.display.float_format = '{:.3f}'.format
@@ -68,10 +69,18 @@ for dataset in datasets:
         print(s)
         
         
-        mod=ExtraTreesClassifier(n_estimators=500)
-        #mod =SVR(kernel='rbf', C=0.1, epsilon=0.005,)
+        mod=ExtraTreesClassifier(n_estimators=2000)
+        #mod=XGBClassifier(n_estimators=2000)
+        #mod =SVC(kernel='sigmoid', C=100,)        
+
         mod.fit(X_train, y_train)
-        predictions = mod.predict(X_test)
 
+        y_pred = mod.predict(X_test)
 
+        columns = [str(i) for i in np.unique(y_test)]
+        plot_confusion_matrix_from_data(y_test, y_pred, columns, figsize=[4, 4],)
+        
+        print(classification_report(y_test, y_pred))
+        
+        
 #%%
