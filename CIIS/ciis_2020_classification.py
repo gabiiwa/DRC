@@ -5,16 +5,18 @@ import pandas as pd
 import matplotlib.pyplot as pl
 import os
 
-from sklearn.decomposition import KernelPCA
-from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
-from sklearn.svm import SVR
-from sklearn.linear_model import ElasticNetCV
-#from xgboost import XGBRegressor
+from sklearn.svm import SVC
+from xgboost import XGBRegressor
+from xgboost import XGBClassifier
+
 
 from read_data import *
 from sklearn import metrics
+from utils import confusion_matrix_pretty_print
+
 #%%
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
@@ -64,3 +66,12 @@ for dataset in datasets:
         s+='='*80
         s+='\n'                    
         print(s)
+        
+        
+        mod=ExtraTreesClassifier(n_estimators=500)
+        #mod =SVR(kernel='rbf', C=0.1, epsilon=0.005,)
+        mod.fit(X_train, y_train)
+        predictions = mod.predict(X_test)
+
+
+#%%
