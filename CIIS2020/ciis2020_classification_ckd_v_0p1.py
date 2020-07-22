@@ -109,7 +109,7 @@ datasets = [
 ]
 #%%----------------------------------------------------------------------------   
 pd.options.display.float_format = '{:.3f}'.format
-from scipy.stats import uniform
+from scipy.stats import uniform, randint
 
 pop_size    = 20
 max_iter    = 40
@@ -149,14 +149,18 @@ for run in range(run0, n_runs):
             
             print(s)            
             
-            distributions = dict(C=uniform(loc=0, scale=1e4),
-                                 gamma=uniform(loc=0, scale=10),
+            distributions = dict(n_estimators=randint(low=1, high=1e4),
+                                 max_depth=randint(low=1, high=10),
+                                 learning_rate=uniform(loc=0, scale=1),
+                                 gamma=uniform(loc=0, scale=1),
+                                 reg_alpha=uniform(loc=0, scale=1),
+                                 reg_lambda=uniform(loc=0, scale=1),
                                  #degree=uniform(loc=1, scale=5),
                                )
             
-            clf = RandomizedSearchCV(estimator=SVC(kernel='linear'), 
+            clf = RandomizedSearchCV(estimator=XGBClassifier(random_state=random_seed), 
                                      param_distributions=distributions, 
-                                     n_iter=100,
+                                     n_iter=500,
                                      n_jobs=-1,
                                      scoring=scoring,
                                      random_state=random_seed)
