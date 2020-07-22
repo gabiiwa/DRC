@@ -15,12 +15,12 @@ from scipy import stats
 
 #%% 
 def transforma_estagio(valor):
-    if   valor == 'Estágio 1 - >= 90 ml':  return 1
-    elif valor == 'Estágio 2 - 60-89 ml':  return 2
-    elif valor == 'Estágio 3a - 45-59 ml': return 3
-    elif valor == 'Estágio 3b - 30-44 ml': return 4
-    elif valor == 'Estágio 4 - 15-29 ml':  return 5
-    elif valor == 'Estágio 5 - < 15 ml':   return 6
+    if   valor == 'Estágio 1 - >= 90 ml':  return 'A'#1
+    elif valor == 'Estágio 2 - 60-89 ml':  return 'A'#2
+    elif valor == 'Estágio 3a - 45-59 ml': return 'A'#3
+    elif valor == 'Estágio 3b - 30-44 ml': return 'A'#4
+    elif valor == 'Estágio 4 - 15-29 ml':  return 'B'#5
+    elif valor == 'Estágio 5 - < 15 ml':   return 'B'#6
 
 def transforma_raca(valor):
     if valor == 'Branca': return 0
@@ -116,11 +116,11 @@ def read_data_drc_35(
        False,  True,  True,  True,  True,  True, False,  True, False,
         True, False,  True,  True, False,  True, False, False,  True,
        False,  True, False,  True, False, False,  True,  True,  True,
-       False,  True, False,  True,  True, False,  True,  True,  True,
-        True,  True, False, False,  True, False,  True,  True,  True,
-        True, False,  True,  True,  True, False,  True, False,  True,
-        True, False,  True,  True,  True,  True, False,  True,  True,
-        True,  True,  True,  True,  True,  True,  True, False,  True,
+       False,  True, False,  True,  True, False,  True,  True,    True,
+        True,  True, False, False,  True, False,  True,  True,    True,
+        True, False,  True,  True,  True, False,  True, False,    True,
+        True, False,  True,  True,  True,  True, False,  True,    True,
+        True,  True,  True,  True,  True,  True,  True, False,    True,
         True, False,  True,  True,  True,  True,  True,  True,  True,
        False, False,  True,  True, False,  True, False, False, False,
        False, False,  True,  True,  True, False,  True, False,  True,

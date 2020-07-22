@@ -69,7 +69,7 @@ for dataset in datasets:
         print(s)
         
         
-        mod=ExtraTreesClassifier(n_estimators=2000)
+        mod=ExtraTreesClassifier(n_estimators=5000)
         #mod=XGBClassifier(n_estimators=2000)
         #mod =SVC(kernel='sigmoid', C=100,)        
 
