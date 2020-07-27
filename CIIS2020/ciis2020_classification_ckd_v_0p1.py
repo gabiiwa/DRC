@@ -149,7 +149,7 @@ for run in range(run0, n_runs):
             
             print(s)            
             
-            distributions = dict(n_estimators=randint(low=1, high=1e4),
+            distributions = dict(n_estimators=randint(low=1, high=1e3),
                                  max_depth=randint(low=1, high=10),
                                  learning_rate=uniform(loc=0, scale=1),
                                  gamma=uniform(loc=0, scale=1),
@@ -160,9 +160,10 @@ for run in range(run0, n_runs):
             
             clf = RandomizedSearchCV(estimator=XGBClassifier(random_state=random_seed), 
                                      param_distributions=distributions, 
-                                     n_iter=500,
-                                     n_jobs=-1,
+                                     n_iter=50,
+                                     n_jobs=1,
                                      scoring=scoring,
+                                     verbose=2,
                                      random_state=random_seed)
             
             clf.fit(X_train, y_train)
