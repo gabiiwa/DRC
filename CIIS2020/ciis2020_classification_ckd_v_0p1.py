@@ -175,3 +175,9 @@ for run in range(run0, n_runs):
             
             print(classification_report(y_test, y_pred))
 #%%----------------------------------------------------------------------------   
+
+            from xgboost import plot_importance
+            model = clf.best_estimator_
+            plot_importance(model)
+
+#%%----------------------------------------------------------------------------   
