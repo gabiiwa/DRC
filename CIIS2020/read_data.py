@@ -169,7 +169,8 @@ def read_data_drc_35(
             filename='./data/Banco35exames.csv',
         ):
     #%%
-    filename='./data/Banco35exames.csv'
+    #filename='./data/Banco35exames.csv'
+    filename='C:/Users/jpsco/Documents/Professor/Doutorado/PGMC/BD2020/DRC/CIIS2020/data/Banco25exames.csv'
     df= pd.read_csv(filename,  delimiter=',')
     
     df['ESTAGIOI - BIN'] = df['ESTAGIOI - EQ'].map(transforma_estagio)

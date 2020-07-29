@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-    
 import numpy as np
 import pandas as pd
-import pygmo as pg
+#import pygmo as pg
 import pylab as pl
 
 from sklearn.model_selection import (GridSearchCV, KFold, cross_val_predict, 
@@ -11,8 +11,8 @@ from sklearn.model_selection import (GridSearchCV, KFold, cross_val_predict,
                                      RandomizedSearchCV,
                                      cross_val_predict,train_test_split)
 from sklearn.metrics import r2_score, mean_squared_error
-from sklearn.metrics.regression import mean_squared_error, mean_absolute_error, median_absolute_error
-from sklearn.metrics.classification import accuracy_score, f1_score, precision_score
+#from sklearn.metrics.regression import mean_squared_error, mean_absolute_error, median_absolute_error
+#from sklearn.metrics.classification import accuracy_score, f1_score, precision_score
 from sklearn.decomposition import KernelPCA
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
 from sklearn.pipeline import Pipeline
