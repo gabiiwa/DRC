@@ -34,7 +34,7 @@ def read_data_drc_25(
             filename='./data/Banco25exames.csv',
         ):
     #%%
-    filename='./data/Banco25exames.csv'
+    filename='C:/Users/jpsco/Documents/Professor/Doutorado/PGMC/BD2020/DRC/CIIS2020/data/Banco25exames.csv'
     df= pd.read_csv(filename,  delimiter=',')
     
     df['ESTAGIOI - BIN'] = df['ESTAGIOI - EQ'].map(transforma_estagio)
@@ -73,17 +73,7 @@ def read_data_drc_25(
          'ColesterolTotalF',
          'TrigliceridesF',
          'ColesterolHDLF',
-         'HemoglobinaF',
-         'SodioSericoI',
-         'PotassioF',
-         'CKI',
-         'CalcioTotalI',
-         'VITAMINADI',
-         'HemoglobinaGlicadaF',
-         'ColesterolLDLI',
-         'UreiaF',
-         'Proteinuria24hsI',
-         'TGPF',
+         'HemoglobinaF'
          ]
     
     df=df[feature_names]
@@ -142,7 +132,7 @@ def read_data_drc_25(
     n_samples, n_features = X_train.shape
     dataset=  {
       'task'            : 'classification',
-      'name'            : 'DRC 35 features',
+      'name'            : 'DRC 25 features',
       'feature_names'   : feature_names,
       'target_names'    : target_names,
       'n_samples'       : n_samples, 
@@ -170,7 +160,7 @@ def read_data_drc_35(
         ):
     #%%
     #filename='./data/Banco35exames.csv'
-    filename='C:/Users/jpsco/Documents/Professor/Doutorado/PGMC/BD2020/DRC/CIIS2020/data/Banco25exames.csv'
+    filename='C:/Users/jpsco/Documents/Professor/Doutorado/PGMC/BD2020/DRC/CIIS2020/data/Banco35exames.csv'
     df= pd.read_csv(filename,  delimiter=',')
     
     df['ESTAGIOI - BIN'] = df['ESTAGIOI - EQ'].map(transforma_estagio)
@@ -220,7 +210,7 @@ def read_data_drc_35(
          'UreiaF',
          'Proteinuria24hsI',
          'TGPF',
-         ]
+         ] 
     # feature_names=['UreiaF', 'Idade', 'UreiaI', 'VITAMINADI', 'PAD_inicial',
     #    'GlicemiadeJejumI', 'TrigliceridesI', 'Proteinuria24hsI', 'pesoi',
     #    'TSHI']
