@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-    
 import numpy as np
 import pandas as pd
-import pygmo as pg
+#import pygmo as pg
 import pylab as pl
 
 from sklearn.model_selection import (GridSearchCV, KFold, cross_val_predict, 
@@ -11,8 +11,8 @@ from sklearn.model_selection import (GridSearchCV, KFold, cross_val_predict,
                                      RandomizedSearchCV,
                                      cross_val_predict,train_test_split)
 from sklearn.metrics import r2_score, mean_squared_error
-from sklearn.metrics.regression import mean_squared_error, mean_absolute_error, median_absolute_error
-from sklearn.metrics.classification import accuracy_score, f1_score, precision_score
+#from sklearn.metrics.regression import mean_squared_error, mean_absolute_error, median_absolute_error
+#from sklearn.metrics.classification import accuracy_score, f1_score, precision_score
 from sklearn.decomposition import KernelPCA
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
 from sklearn.pipeline import Pipeline
@@ -149,7 +149,7 @@ for run in range(run0, n_runs):
             
             print(s)            
             
-            distributions = dict(n_estimators=randint(low=1, high=1e4),
+            distributions = dict(n_estimators=randint(low=1, high=1e3),
                                  max_depth=randint(low=1, high=10),
                                  learning_rate=uniform(loc=0, scale=1),
                                  gamma=uniform(loc=0, scale=1),
@@ -160,9 +160,10 @@ for run in range(run0, n_runs):
             
             clf = RandomizedSearchCV(estimator=XGBClassifier(random_state=random_seed), 
                                      param_distributions=distributions, 
-                                     n_iter=500,
-                                     n_jobs=-1,
+                                     n_iter=50,
+                                     n_jobs=1,
                                      scoring=scoring,
+                                     verbose=2,
                                      random_state=random_seed)
             
             clf.fit(X_train, y_train)
@@ -173,4 +174,10 @@ for run in range(run0, n_runs):
             plot_confusion_matrix_from_data(y_test, y_pred, columns, figsize=[4, 4],)
             
             print(classification_report(y_test, y_pred))
+#%%----------------------------------------------------------------------------   
+
+            from xgboost import plot_importance
+            model = clf.best_estimator_
+            plot_importance(model)
+
 #%%----------------------------------------------------------------------------   
