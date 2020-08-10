@@ -23,6 +23,24 @@ cfr = cfr.replace(',', '.', regex=True)
 
 
 #consertando tfg
+
+#tfg['TFG_1_2011'].replace('.', '', regex=True)
+#tfg['EQ'].replace('.', '', regex=True)
+#tfg['TFG_2_2011'].replace('.', '', regex=True)
+#tfg['EQ.1'].replace('.', '', regex=True)
+#tfg['TFG_1_2012'].replace('.', '', regex=True)
+#tfg['EQ.2'].replace('.', '', regex=True)
+#tfg['TFG_2_2012'].replace('.', '', regex=True)
+#tfg['EQ.3'].replace('.', '', regex=True)
+#tfg['TFG_1_2013'].replace('.', '', regex=True)
+#tfg['EQ.4'].replace('.', '', regex=True)
+#tfg['TFG_2_2013'].replace('.', '', regex=True)
+#tfg['EQ.5'].replace('.', '', regex=True)
+#tfg['TFG_1_2014'].replace('.', '', regex=True)
+#tfg['EQ.6'].replace('.', '', regex=True)
+#tfg['TFG_2_2014'].replace('.', '', regex=True)
+tfg['EQ.7'].replace('.', '', regex=True)
+
 tfg = tfg.replace(np.nan,'0.0', regex=True)
 tfg = tfg.replace(',', '.', regex=True)
 
