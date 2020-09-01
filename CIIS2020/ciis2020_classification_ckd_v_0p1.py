@@ -29,7 +29,7 @@ from xgboost import  XGBRegressor
 from sklearn.naive_bayes import GaussianNB
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import (RBF, Matern, RationalQuadratic,
-                                              ExpSineSquared, DotProduct,
+                                              ExpSineSquared, DotProduct,i
                                               ConstantKernel)
 
 
