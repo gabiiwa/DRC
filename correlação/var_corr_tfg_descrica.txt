@@ -1,0 +1,144 @@
+valor da correlacao:
+tfg_1_2011:-0.7621433480461454  tfg_2_2011:-0.563906104010057
+count    2482.000000
+mean        1.433924
+std         0.516423
+min         1.000000
+25%         1.000000
+50%         1.000000
+75%         2.000000
+max         3.000000
+Name: estagioI_alb, dtype: float64
+
+valor da correlacao:
+tfg_1_2012:-0.4497542361904912   tfg_2_2012:-0.5060745731169591
+count    2133.000000
+mean        1.383497
+std         0.487315
+min         1.000000
+25%         1.000000
+50%         1.000000
+75%         2.000000
+max         3.000000
+Name: estagioF_alb, dtype: float64
+
+valor da correlacao:
+tfg_1_2011:-0.6770701741126269  tfg_2_2011:-0.6110555567338068
+count    6115.000000
+mean        1.328741
+std         0.817987
+min         0.100000
+25%         0.900000
+50%         1.120000
+75%         1.500000
+max        20.500000
+Name: creatinina_inicial, dtype: float64
+
+valor da correlacao:
+tfg_1_2011:-0.5445659930591498  tfg_2_2011:-0.505689548657056
+count    4555.000000
+mean        1.424654
+std         1.111397
+min         0.020000
+25%         0.890000
+50%         1.100000
+75%         1.500000
+max        15.700000
+Name: creatinina_final, dtype: float64
+
+valor da correlacao:
+tfg_1_2012:0.8749787515504357   tfg_2_2012:0.5725210975673152
+count    13.000000
+mean      3.896154
+std       0.651224
+min       2.600000
+25%       3.300000
+50%       4.020000
+75%       4.300000
+max       4.800000
+Name: albumina_final, dtype: float64
+
+valor da correlacao:
+tfg_1_2011:-0.5463071158874687  tfg_2_2011:-0.4908041977869931
+count    4867.000000
+mean       46.764228
+std        31.493636
+min         1.400000
+25%        29.000000
+50%        38.000000
+75%        53.000000
+max       752.500000
+Name: ureia_inicial, dtype: float64
+
+valor da correlacao:
+tfg_1_2014:-0.547835443324473  tfg_2_2014:-0.57993264026444
+count    2832.000000
+mean       51.868319
+std        36.437222
+min         1.100000
+25%        31.000000
+50%        41.000000
+75%        61.000000
+max       734.000000
+Name: ureia_final, dtype: float64
+
+valor da correlacao:
+tfg_1_2012:-0.5285715479044998   tfg_2_2012:-0.5539641793487261
+count    1961.000000
+mean        1.526119
+std         1.039591
+min         0.070000
+25%         1.000000
+50%         1.300000
+75%         1.700000
+max        17.800000
+Name: creatinina_1_2013, dtype: float64
+
+valor da correlacao:
+tfg_1_2011:-0.5767638054555232  tfg_2_2011:-0.537184450706182
+count    2093.000000
+mean        1.465112
+std         0.824521
+min         0.100000
+25%         1.000000
+50%         1.300000
+75%         1.650000
+max         7.700000
+Name: creatinina_2_2013, dtype: float64
+
+valor da correlacao:
+tfg_1_2011:-0.49679032473591045  tfg_2_2011:-0.5241298459926302
+count    2310.000000
+mean        1.491117
+std         4.978634
+min         0.300000
+25%         0.900000
+50%         1.195000
+75%         1.547500
+max       230.010000
+Name: creatinina_1_2014, dtype: float64
+
+valor da correlacao:
+tfg_1_2011:-0.5530644152868462  tfg_2_2011:-0.5080550205609102
+count    2038.000000
+mean        1.366663
+std         2.129636
+min         0.020000
+25%         0.800000
+50%         1.100000
+75%         1.500000
+max        78.840000
+Name: creatinina_2_2014, dtype: float64
+
+valor da correlacao:
+tfg_1_2011:0.8112801017014645  tfg_2_2011:0.016833502447176383
+count    23.000000
+mean      1.675652
+std       2.774217
+min       0.170000
+25%       0.510000
+50%       0.930000
+75%       1.490000
+max      13.700000
+Name: bilirrubina_final, dtype: float64
+
