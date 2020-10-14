@@ -1,3 +1,4 @@
+  
 #!/usr/bin/python
 # -*- coding: utf-8 -*-    
 import numpy as np
@@ -29,7 +30,7 @@ from xgboost import  XGBRegressor
 from sklearn.naive_bayes import GaussianNB
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import (RBF, Matern, RationalQuadratic,
-                                              ExpSineSquared, DotProduct,i
+                                              ExpSineSquared, DotProduct,
                                               ConstantKernel)
 
 
@@ -55,9 +56,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
 from sklearn.svm import SVC
 from xgboost import XGBClassifier
-
-
-from read_data import *
 from sklearn import metrics
 from utils.confusion_matrix_pretty_print import plot_confusion_matrix_from_data
 from sklearn.metrics import classification_report
@@ -105,8 +103,11 @@ basename='evo_ml_'
 
 from read_data import *
 datasets = [
-    read_data_drc_35(),
-]
+            read_data_cenario('cenario1.csv'),
+            read_data_cenario('cenario2.csv'),
+            read_data_cenario('cenario3.csv'),
+            read_data_cenario('cenario4.csv')
+          ]
 #%%----------------------------------------------------------------------------   
 pd.options.display.float_format = '{:.3f}'.format
 from scipy.stats import uniform, randint
