@@ -57,7 +57,8 @@ from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler
 from sklearn.svm import SVC
 from xgboost import XGBClassifier
 from sklearn import metrics
-from utils.confusion_matrix_pretty_print import plot_confusion_matrix_from_data
+#from utils.confusion_matrix_pretty_print import plot_confusion_matrix_from_data
+from ds_utils.metrics import plot_confusion_matrix
 from sklearn.metrics import classification_report
 
 #%%----------------------------------------------------------------------------
@@ -172,7 +173,8 @@ for run in range(run0, n_runs):
             y_pred = clf.predict(X_test)
            
             columns = [str(i) for i in np.unique(y_test)]
-            plot_confusion_matrix_from_data(y_test, y_pred, columns, figsize=[4, 4],)
+            #plot_confusion_matrix_from_data(y_test, y_pred, columns, figsize=[4, 4],)
+            plot_confusion_matrix(y_test, y_pred, columns, figsize=[4, 4],)
             
             print(classification_report(y_test, y_pred))
 #%%----------------------------------------------------------------------------   

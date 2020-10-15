@@ -21,7 +21,10 @@ from sklearn.metrics import classification_report
 #%%
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
-            read_data_drc_35(),
+            read_data_cenario('cenario1.csv'),
+            read_data_cenario('cenario2.csv'),
+            read_data_cenario('cenario3.csv'),
+            read_data_cenario('cenario4.csv')  
            ]
 
 random_seed=0
