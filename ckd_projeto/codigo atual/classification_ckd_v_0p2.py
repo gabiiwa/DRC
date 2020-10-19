@@ -162,8 +162,9 @@ for run in range(run0, n_runs):
             
             clf = RandomizedSearchCV(estimator=XGBClassifier(random_state=random_seed), 
                                      param_distributions=distributions, 
-                                     n_iter=30,
-                                     n_jobs=-1,
+                                     n_iter=1,
+                                     n_jobs=1,
+                                     cv=3,
                                      scoring=scoring,
                                      verbose=2,
                                      random_state=random_seed)
@@ -176,7 +177,7 @@ for run in range(run0, n_runs):
            
             columns = [str(i) for i in np.unique(y_test)]
             #plot_confusion_matrix_from_data(y_test, y_pred, columns, figsize=[4, 4],)
-            plot_confusion_matrix(y_test, y_pred, columns, figsize=[4, 4],)
+            #plot_confusion_matrix(y_test, y_pred, columns, figsize=[4, 4],)
             
             print(classification_report(y_test, y_pred))
 #%%----------------------------------------------------------------------------   
