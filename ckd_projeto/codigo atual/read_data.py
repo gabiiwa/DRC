@@ -14,7 +14,54 @@ import sys
 import re
 from scipy import stats
 
+
 def read_data_cenario(cenario):
+    
+    filename='cenarios/'+cenario
+    df = pd.read_csv(filename, sep = ';', encoding = "ISO-8859-1").drop(['Unnamed: 0'], axis=1)
+        
+    target_names = ['ESTAGIOF_EQ']
+    y = df[target_names]
+
+    feature_names = df.columns.to_list()
+    feature_names.remove('ESTAGIOF_EQ')
+
+    df = df[feature_names]
+
+    df_true  = [True  for i in range(int(df.shape[0]))]
+    df_false = []
+    idx = df_true + df_false
+    random.shuffle(idx)
+    idn = [not i for i in idx]
+
+    X_train, y_train = df[idx], y[idx]
+    X_test,  y_test  = df[idn], y[idn]
+
+    data_description = ['X_'+str(i+1) for i in range(df.shape[1])]
+    n_samples, n_features = X_train.shape
+    dataset=  {
+      'task'            : 'classification',
+      'name'            : 'Scenario '+cenario[7],
+      'feature_names'   : feature_names,
+      'target_names'    : target_names,
+      'n_samples'       : n_samples, 
+      'n_features'      : n_features,
+      'X_train'         : X_train.values,
+      'X_test'          : X_test.values,
+      'y_train'         : y_train.values.T,
+      'y_test'          : y_test.values.T,      
+      'targets'         : feature_names,
+      'true_labels'     : None,
+      'predicted_labels': None,
+      'descriptions'    : data_description,
+      'items'           : None,
+      'reference'       : "https://www.sciencedirect.com/science/article/pii/S2352914818302387",      
+      'normalize'       : 'MinMax',
+      }
+    #%% 
+    return dataset
+
+def read_data_cenario_old(cenario):
     
     filename='cenarios/'+cenario
     df = pd.read_csv(filename, sep = ';', encoding = "ISO-8859-1").drop(['Unnamed: 0'], axis=1)
