@@ -162,8 +162,8 @@ for run in range(run0, n_runs):
             
             clf = RandomizedSearchCV(estimator=XGBClassifier(random_state=random_seed), 
                                      param_distributions=distributions, 
-                                     n_iter=50,
-                                     n_jobs=1,
+                                     n_iter=30,
+                                     n_jobs=-1,
                                      scoring=scoring,
                                      verbose=2,
                                      random_state=random_seed)
