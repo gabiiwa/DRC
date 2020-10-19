@@ -130,8 +130,8 @@ for run in range(run0, n_runs):
         for tk, tn in enumerate(dataset['target_names']):
             print (tk, tn)
             target                          = dataset['target_names'][tk]
-            y_train, y_test                 = dataset['y_train'][tk], dataset['y_test'][tk]
-            dataset_name, X_train, X_test   = dataset['name'], dataset['X_train'], dataset['X_test']
+            y      , y_test                 = dataset['y_train'][tk], dataset['y_test'][tk]
+            dataset_name, X      , X_test   = dataset['name'], dataset['X_train'], dataset['X_test']
             n_samples_train, n_features     = dataset['n_samples'], dataset['n_features']
             task, normalize                 = dataset['task'], dataset['normalize']
             n_samples_test                  = len(y_test)
@@ -168,8 +168,7 @@ for run in range(run0, n_runs):
                                      verbose=2,
                                      random_state=random_seed)
             
-            X = dataset['X_train']
-            X_train, X_test, y_train, y_test = train_test_split(X, test_size=0.3, random_state=random_seed)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=random_seed)
            
             clf.fit(X_train, y_train)
             
