@@ -17,7 +17,7 @@ from scipy import stats
 
 def read_data_cenario(cenario):
     
-    filename='cenarios/'+cenario
+    filename='../cenarios/'+cenario
     df = pd.read_csv(filename, sep = ';', encoding = "ISO-8859-1").drop(['Unnamed: 0'], axis=1)
         
     target_names = ['ESTAGIOF_EQ']

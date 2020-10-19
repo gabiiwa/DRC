@@ -58,7 +58,7 @@ from sklearn.svm import SVC
 from xgboost import XGBClassifier
 from sklearn import metrics
 #from utils.confusion_matrix_pretty_print import plot_confusion_matrix_from_data
-from ds_utils.metrics import plot_confusion_matrix
+#from ds_utils.metrics import plot_confusion_matrix
 from sklearn.metrics import classification_report
 
 #%%----------------------------------------------------------------------------
