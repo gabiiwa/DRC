@@ -18,12 +18,14 @@ from sklearn.decomposition import KernelPCA
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
 from sklearn.pipeline import Pipeline
 
+from sklearn.gaussian_process import  GaussianProcessClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVR, LinearSVR, SVC
 from sklearn.linear_model import ElasticNet, Ridge, PassiveAggressiveRegressor, LogisticRegression, BayesianRidge
-from sklearn.neighbors import KNeighborsRegressor
+from sklearn.neighbors import KNeighborsRegressor, KNeighborsClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, VotingRegressor
-from sklearn.neural_network import MLPRegressor
+from sklearn.neural_network import MLPRegressor, MLPClassifier
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.kernel_ridge import KernelRidge
 from xgboost import  XGBRegressor
@@ -33,7 +35,7 @@ from sklearn.gaussian_process.kernels import (RBF, Matern, RationalQuadratic,
                                               ExpSineSquared, DotProduct,
                                               ConstantKernel)
 
-
+from ELM import ELMClassifier
 #import re  
 import os
 #from sklearn.gaussian_process import GaussianProcess
@@ -121,6 +123,145 @@ scoring     = 'neg_root_mean_squared_error'
 for run in range(run0, n_runs):
     random_seed=run+100
     
+    
+    
+    
+    estimators=[
+        # #
+        # # XGB
+        # #
+        # (
+        #  #
+        #  # acronym
+        #  #
+        #  'XGB',
+        #  #
+        #  # distributions
+        #  #
+        #  dict(  n_estimators=randint(low=1, high=1e3),
+        #         max_depth=randint(low=1, high=10),
+        #         learning_rate=uniform(loc=0, scale=1),
+        #         gamma=uniform(loc=0, scale=1),
+        #         reg_alpha=uniform(loc=0, scale=1),
+        #         reg_lambda=uniform(loc=0, scale=1),
+        #         #degree=uniform(loc=1, scale=5),
+        #                            ),
+        #  #
+        #  # estimator
+        #  #
+        #  XGBClassifier(random_state=random_seed)
+        #  ),
+        #
+        # LinearRegression
+        #
+        # (
+        # #
+        # # acronym
+        # #
+        # 'LR',
+        # #
+        # # distributions
+        # #
+        # dict( 
+        #      C=uniform(loc=1, scale=1e3),
+        #      l1_ratio=uniform(loc=0, scale=1),
+        #     ),
+        # #
+        # # estimator
+        # #
+        # LogisticRegression(random_state=random_seed)
+        # ),
+        
+        # (
+        # #
+        # # acronym
+        # #
+        # 'SVC',
+        # #
+        # # distributions
+        # #
+        # dict( 
+        #       C=uniform(loc=1, scale=1e3),
+        #       gamma=uniform(loc=0.001, scale=100),
+        #     ),
+        # #
+        # # estimator
+        # #
+        # SVC(kernel='rbf', max_iter=1000, random_state=random_seed)
+        # ),
+        
+        # (
+        # #
+        # # acronym
+        # #
+        # 'KNN',
+        # #
+        # # distributions
+        # #
+        # dict( 
+        #      n_neighbors=randint(low=1, high=15),
+        #      p=randint(low=1, high=3),
+        #     ),
+        # #
+        # # estimator
+        # #
+        # KNeighborsClassifier()
+        # ),
+        
+        # (
+        # #
+        # # acronym
+        # #
+        # 'MLP',
+        # #
+        # # distributions
+        # #
+        # dict( 
+        #      hidden_layer_sizes=randint(low=1, high=100),
+        #     ),
+        # #
+        # # estimator
+        # #
+        # MLPClassifier(activation='relu', random_state=random_seed)
+        # ),
+        
+        # (
+        # #
+        # # acronym
+        # #
+        # 'ELM',
+        # #
+        # # distributions
+        # #
+        # dict( 
+        #      n_hidden=randint(low=10, high=300),
+        #     ),
+        # #
+        # # estimator
+        # #
+        # ELMClassifier(activation_func='identity', random_state=random_seed)
+        # ),
+        
+        (
+        #
+        # acronym
+        #
+        'GPC',
+        #
+        # distributions
+        #
+        dict( 
+              
+            ),
+        #
+        # estimator
+        #
+        GaussianProcessClassifier(optimizer='fmin_l_bfgs_b', random_state=random_seed)
+        ),
+        
+        ]
+
+    
     for dataset in datasets:#[:1]:
         dr=dataset['name'].replace(' ','_').replace("'","").lower()
         path='./pkl_'+dr+'/'
@@ -151,39 +292,32 @@ for run in range(run0, n_runs):
             
             print(s)     
             
-            distributions = dict(n_estimators=randint(low=1, high=1e3),
-                                 max_depth=randint(low=1, high=10),
-                                 learning_rate=uniform(loc=0, scale=1),
-                                 gamma=uniform(loc=0, scale=1),
-                                 reg_alpha=uniform(loc=0, scale=1),
-                                 reg_lambda=uniform(loc=0, scale=1),
-                                 #degree=uniform(loc=1, scale=5),
-                               )
-            
-            clf = RandomizedSearchCV(estimator=XGBClassifier(random_state=random_seed), 
-                                     param_distributions=distributions, 
+            X = pd.DataFrame(X).fillna(0).values
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=random_seed)
+
+
+            for (acronym, distribution, classifier) in  estimators:
+                print(acronym, distribution, classifier)        
+                clf = RandomizedSearchCV(estimator=classifier, 
+                                     param_distributions=distribution, 
                                      n_iter=1,
                                      n_jobs=1,
-                                     cv=3,
                                      scoring=scoring,
-                                     verbose=2,
+                                     cv=3,
+                                     verbose=1,
                                      random_state=random_seed)
-            
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=random_seed)
-           
-            clf.fit(X_train, y_train)  
-            
-            y_pred = clf.predict(X_test)
-           
-            columns = [str(i) for i in np.unique(y_test)]
-            #plot_confusion_matrix_from_data(y_test, y_pred, columns, figsize=[4, 4],)
-            #plot_confusion_matrix(y_test, y_pred, columns, figsize=[4, 4],)
-            
-            print(classification_report(y_test, y_pred))
+                
+                clf.fit(X_train, y_train)                  
+                y_pred = clf.predict(X_test)              
+                columns = [str(i) for i in np.unique(y_test)]
+                #plot_confusion_matrix_from_data(y_test, y_pred, columns, figsize=[4, 4],)
+                #plot_confusion_matrix(y_test, y_pred, columns, figsize=[4, 4],)
+                
+                print(acronym, classification_report(y_test, y_pred))
 #%%----------------------------------------------------------------------------   
 
-            from xgboost import plot_importance
-            model = clf.best_estimator_
-            plot_importance(model)
+            # from xgboost import plot_importance
+            # model = clf.best_estimator_
+            # plot_importance(model)
 
 #%%----------------------------------------------------------------------------   
