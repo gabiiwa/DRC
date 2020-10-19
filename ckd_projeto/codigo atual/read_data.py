@@ -33,7 +33,7 @@ def read_data_cenario(cenario):
     idx = df_true + df_false
     random.shuffle(idx)
     idn = [not i for i in idx]
-
+ 
     X_train, y_train = df[idx], y[idx]
     X_test,  y_test  = df[idn], y[idn]
 
