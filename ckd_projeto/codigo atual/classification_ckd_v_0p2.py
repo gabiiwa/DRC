@@ -130,134 +130,134 @@ for run in range(run0, n_runs):
         # #
         # # XGB
         # #
-        # (
+         (
         #  #
         #  # acronym
         #  #
-        #  'XGB',
+          'XGB',
         #  #
         #  # distributions
         #  #
-        #  dict(  n_estimators=randint(low=1, high=1e3),
-        #         max_depth=randint(low=1, high=10),
-        #         learning_rate=uniform(loc=0, scale=1),
-        #         gamma=uniform(loc=0, scale=1),
-        #         reg_alpha=uniform(loc=0, scale=1),
-        #         reg_lambda=uniform(loc=0, scale=1),
-        #         #degree=uniform(loc=1, scale=5),
-        #                            ),
+          dict(  n_estimators=randint(low=1, high=1e3),
+                 max_depth=randint(low=1, high=10),
+                 learning_rate=uniform(loc=0, scale=1),
+                 gamma=uniform(loc=0, scale=1),
+                 reg_alpha=uniform(loc=0, scale=1),
+                 reg_lambda=uniform(loc=0, scale=1),
+                 #degree=uniform(loc=1, scale=5),
+                                    ),
         #  #
         #  # estimator
         #  #
-        #  XGBClassifier(random_state=random_seed)
-        #  ),
+          XGBClassifier(random_state=random_seed)
+          ),
         #
         # LinearRegression
         #
-        # (
+         (
         # #
         # # acronym
         # #
-        # 'LR',
+         'LR',
         # #
         # # distributions
         # #
-        # dict( 
-        #      C=uniform(loc=1, scale=1e3),
-        #      l1_ratio=uniform(loc=0, scale=1),
-        #     ),
+         dict( 
+              C=uniform(loc=1, scale=1e3),
+              l1_ratio=uniform(loc=0, scale=1),
+             ),
         # #
         # # estimator
         # #
-        # LogisticRegression(random_state=random_seed)
-        # ),
+         LogisticRegression(random_state=random_seed)
+         ),
         
-        # (
+         (
         # #
         # # acronym
         # #
-        # 'SVC',
+         'SVC',
         # #
         # # distributions
         # #
-        # dict( 
-        #       C=uniform(loc=1, scale=1e3),
-        #       gamma=uniform(loc=0.001, scale=100),
-        #     ),
+         dict( 
+               C=uniform(loc=1, scale=1e3),
+               gamma=uniform(loc=0.001, scale=100),
+            ),
         # #
         # # estimator
         # #
-        # SVC(kernel='rbf', max_iter=1000, random_state=random_seed)
-        # ),
+         SVC(kernel='rbf', max_iter=1000, random_state=random_seed)
+         ),
         
-        # (
+         (
         # #
         # # acronym
         # #
-        # 'KNN',
+         'KNN',
         # #
         # # distributions
         # #
-        # dict( 
-        #      n_neighbors=randint(low=1, high=15),
-        #      p=randint(low=1, high=3),
-        #     ),
+         dict( 
+              n_neighbors=randint(low=1, high=15),
+              p=randint(low=1, high=3),
+             ),
         # #
         # # estimator
         # #
-        # KNeighborsClassifier()
-        # ),
+         KNeighborsClassifier()
+         ),
         
-        # (
+         (
         # #
         # # acronym
         # #
-        # 'MLP',
+           'MLP',
         # #
         # # distributions
         # #
-        # dict( 
-        #      hidden_layer_sizes=randint(low=1, high=100),
-        #     ),
+         dict( 
+              hidden_layer_sizes=randint(low=1, high=100),
+             ),
         # #
         # # estimator
         # #
-        # MLPClassifier(activation='relu', random_state=random_seed)
-        # ),
+         MLPClassifier(activation='relu', random_state=random_seed)
+         ),
         
-        # (
+         (
         # #
         # # acronym
         # #
-        # 'ELM',
+         'ELM',
         # #
         # # distributions
         # #
-        # dict( 
-        #      n_hidden=randint(low=10, high=300),
-        #     ),
+         dict( 
+              n_hidden=randint(low=10, high=300),
+             ),
         # #
         # # estimator
         # #
-        # ELMClassifier(activation_func='identity', random_state=random_seed)
-        # ),
+         ELMClassifier(activation_func='identity', random_state=random_seed)
+         ),
         
-        (
+        #(
         #
         # acronym
         #
-        'GPC',
+        #'GPC',
         #
         # distributions
         #
-        dict( 
+        #dict( 
               
-            ),
+        #    ),
         #
         # estimator
         #
-        GaussianProcessClassifier(optimizer='fmin_l_bfgs_b', random_state=random_seed)
-        ),
+        #GaussianProcessClassifier(optimizer='fmin_l_bfgs_b', random_state=random_seed)
+        #),
         
         ]
 
@@ -300,7 +300,7 @@ for run in range(run0, n_runs):
                 print(acronym, distribution, classifier)        
                 clf = RandomizedSearchCV(estimator=classifier, 
                                      param_distributions=distribution, 
-                                     n_iter=1,
+                                     n_iter=100,
                                      n_jobs=1,
                                      scoring=scoring,
                                      cv=3,

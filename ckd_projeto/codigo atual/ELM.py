@@ -29,12 +29,15 @@ from sklearn.base import BaseEstimator, TransformerMixin
 
 #from sklearn.utils import check_random_state, np.atleast_2d
 from sklearn.utils import check_random_state
+
+
 #====================================================================================
 #
 # Copy and paste this to work in sklearn version > 0.15
 # 
 #====================================================================================
-from sklearn.externals import six 
+#from sklearn.externals import six 
+import six
 import warnings
 import numbers
 
@@ -340,7 +343,8 @@ class RandomLayer(BaseRandomLayer):
             n_features = X.shape[1]
 
             if (sparse):
-                fxr = xrange(n_features)
+                #fxr = xrange(n_features)
+                fxr = range(n_features)
                 cols = [X.getcol(i) for i in fxr]
 
                 min_dtype = X.dtype.type(1.0e10)
@@ -821,7 +825,8 @@ class GenELMClassifier(BaseELM, ClassifierMixin):
     """
     def __init__(self,
                  hidden_layer=MLPRandomLayer(random_state=0),
-                 binarizer=LabelBinarizer(-1, 1),
+                 #binarizer=LabelBinarizer(-1, 1),
+                 binarizer = LabelBinarizer(neg_label=-1, pos_label=1),
                  regressor=None):
 
         super(GenELMClassifier, self).__init__(hidden_layer, regressor)
@@ -1092,7 +1097,8 @@ class ELMClassifier(ELMRegressor):
     def __init__(self, n_hidden=20, alpha=0.5, rbf_width=1.0,
                  activation_func='tanh', activation_args=None,
                  user_components=None, regressor=None,
-                 binarizer=LabelBinarizer(-1, 1),
+                 #binarizer=LabelBinarizer(-1, 1),
+                 binarizer = LabelBinarizer(neg_label=-1, pos_label=1),
                  random_state=None):
 
         super(ELMClassifier, self).__init__(n_hidden=n_hidden,

@@ -1,0 +1,515 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\jpsco\Documents\Professor\Doutorado\PGMC\DRC\DRC\ckdjpsco/AppData/Local/Programs/Python/Python38/python.exe "c:/Userado/PGMC/DRC/DRC/ckd_projeto/codigo atual/classification_ckd_v_0
+  File "c:/Users/jpsco/Documents/Professor/Doutorado/PGMC/DRC/DRication_ckd_v_0p2.py", line 262
+    ]
+    ^
+SyntaxError: closing parenthesis ']' does not match opening pare
+PS C:\Users\jpsco\Documents\Professor\Doutorado\PGMC\DRC\DRC\ckdjpsco/AppData/Local/Programs/Python/Python38/python.exe "c:/Userjpsco/AppData/Local/Programs/Python/Python38/python.exe "c:/Userodigo atual/classification_ckd_v_0p2.py"
+The syntax of the command is incorrect.
+0 ESTAGIOF_EQ
+
+================================================================
+Dataset                    : Scenario 1 -- ESTAGIOF_EQ
+Number of training samples : 40100
+Number of testing  samples : 0
+Number of features         : 4
+Normalization              : MinMax
+Task                       : classification
+Reference                  : https://www.sciencedirect.com/scien
+================================================================
+
+XGB {'n_estimators': <scipy.stats._distn_infrastructure.rv_frozen_infrastructure.rv_frozen object at 0x000002960AE90CD0>, 'learnt 0x000002960AE90C10>, 'gamma': <scipy.stats._distn_infrastructustats._distn_infrastructure.rv_frozen object at 0x000002960AECB2
+object at 0x000002960AECB520>} XGBClassifier(base_score=None, bo
+              colsample_bynode=None, colsample_bytree=None, gamm
+              gpu_id=None, importance_type='gain', interaction_c
+              learning_rate=None, max_delta_step=None, max_depth
+              min_child_weight=None, missing=nan, monotone_const
+              n_estimators=100, n_jobs=None, num_parallel_tree=N
+              random_state=100, reg_alpha=None, reg_lambda=None,
+              scale_pos_weight=None, subsample=None, tree_method
+              validate_parameters=None, verbosity=None)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 100.4min fi
+XGB               precision    recall  f1-score   support
+
+           1       0.86      0.81      0.84      2285
+           2       0.82      0.85      0.84      3913
+           3       0.80      0.78      0.79      2404
+           4       0.86      0.86      0.86      1847
+           5       0.92      0.92      0.92      1146
+           6       0.97      0.95      0.96       435
+
+    accuracy                           0.84     12030
+   macro avg       0.87      0.86      0.87     12030
+weighted avg       0.84      0.84      0.84     12030
+
+LR {'C': <scipy.stats._distn_infrastructure.rv_frozen object at ure.rv_frozen object at 0x000002960AECBB80>} LogisticRegression(
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  4.0min fin
+LR               precision    recall  f1-score   support
+
+           1       0.46      0.42      0.44      2285
+           2       0.32      0.60      0.41      3913
+           3       0.28      0.21      0.24      2404
+           4       0.25      0.10      0.15      1847
+           5       0.00      0.00      0.00      1146
+           6       0.20      0.01      0.03       435
+
+    accuracy                           0.33     12030
+   macro avg       0.25      0.22      0.21     12030
+weighted avg       0.29      0.33      0.29     12030
+
+SVC {'C': <scipy.stats._distn_infrastructure.rv_frozen object ate.rv_frozen object at 0x000002960AECBCA0>} SVC(max_iter=1000, ra
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 59.6min fin
+SVC               precision    recall  f1-score   support
+
+           1       0.61      0.23      0.33      2285
+           2       0.44      0.91      0.59      3913
+           3       0.62      0.14      0.23      2404
+           4       0.74      0.38      0.50      1847
+           5       0.90      0.90      0.90      1146
+           6       0.98      0.95      0.96       435
+
+    accuracy                           0.55     12030
+   macro avg       0.72      0.58      0.59     12030
+weighted avg       0.62      0.55      0.50     12030
+
+KNN {'n_neighbors': <scipy.stats._distn_infrastructure.rv_frozenructure.rv_frozen object at 0x000002960AEDA430>} KNeighborsClass
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  2.0min fin
+KNN               precision    recall  f1-score   support
+
+           1       0.78      0.80      0.79      2285
+           2       0.80      0.79      0.80      3913
+           3       0.75      0.74      0.74      2404
+           4       0.83      0.85      0.84      1847
+           5       0.93      0.90      0.92      1146
+           6       0.93      0.97      0.95       435
+
+    accuracy                           0.81     12030
+   macro avg       0.84      0.84      0.84     12030
+weighted avg       0.81      0.81      0.81     12030
+
+MLP {'hidden_layer_sizes': <scipy.stats._distn_infrastructure.rve=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 47.4min fin
+MLP               precision    recall  f1-score   support
+
+           1       0.64      0.58      0.61      2285
+           2       0.52      0.71      0.60      3913
+           3       0.46      0.32      0.38      2404
+           4       0.55      0.46      0.50      1847
+           5       0.59      0.54      0.56      1146
+           6       0.67      0.68      0.67       435
+
+    accuracy                           0.55     12030
+   macro avg       0.57      0.55      0.55     12030
+weighted avg       0.55      0.55      0.54     12030
+
+ELM {'n_hidden': <scipy.stats._distn_infrastructure.rv_frozen obtity', random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  4.0min fin
+ELM               precision    recall  f1-score   support
+
+           1       0.68      0.44      0.54      2285
+           2       0.48      0.81      0.61      3913
+           3       0.38      0.22      0.28      2404
+           4       0.51      0.41      0.45      1847
+           5       0.52      0.36      0.43      1146
+           6       0.74      0.59      0.66       435
+
+    accuracy                           0.51     12030
+   macro avg       0.55      0.47      0.49     12030
+weighted avg       0.52      0.51      0.49     12030
+
+The syntax of the command is incorrect.
+0 ESTAGIOF_EQ
+
+================================================================
+Dataset                    : Scenario 2 -- ESTAGIOF_EQ
+Number of training samples : 40100
+Number of testing  samples : 0
+Number of features         : 25
+Normalization              : MinMax
+Task                       : classification
+Reference                  : https://www.sciencedirect.com/scien
+================================================================
+
+XGB {'n_estimators': <scipy.stats._distn_infrastructure.rv_frozen_infrastructure.rv_frozen object at 0x000002960AE90CD0>, 'learnt 0x000002960AE90C10>, 'gamma': <scipy.stats._distn_infrastructustats._distn_infrastructure.rv_frozen object at 0x000002960AECB2
+object at 0x000002960AECB520>} XGBClassifier(base_score=None, bo
+              colsample_bynode=None, colsample_bytree=None, gamm
+              gpu_id=None, importance_type='gain', interaction_c
+              learning_rate=None, max_delta_step=None, max_depth
+              min_child_weight=None, missing=nan, monotone_const
+              n_estimators=100, n_jobs=None, num_parallel_tree=N
+              random_state=100, reg_alpha=None, reg_lambda=None,
+              scale_pos_weight=None, subsample=None, tree_method
+              validate_parameters=None, verbosity=None)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 281.8min fi
+XGB               precision    recall  f1-score   support
+
+           1       0.97      0.95      0.96      2285
+           2       0.95      0.97      0.96      3913
+           3       0.96      0.97      0.96      2404
+           4       0.97      0.95      0.96      1847
+           5       0.98      0.96      0.97      1146
+           6       0.99      0.96      0.97       435
+
+    accuracy                           0.96     12030
+   macro avg       0.97      0.96      0.96     12030
+weighted avg       0.96      0.96      0.96     12030
+
+LR {'C': <scipy.stats._distn_infrastructure.rv_frozen object at ure.rv_frozen object at 0x000002960AECBB80>} LogisticRegression(
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  4.8min fin
+LR               precision    recall  f1-score   support
+
+           1       0.50      0.18      0.26      2285
+           2       0.35      0.84      0.50      3913
+           3       0.23      0.04      0.06      2404
+           4       0.27      0.21      0.24      1847
+           5       0.20      0.02      0.04      1146
+           6       0.38      0.02      0.04       435
+
+    accuracy                           0.35     12030
+   macro avg       0.32      0.22      0.19     12030
+weighted avg       0.33      0.35      0.27     12030
+
+SVC {'C': <scipy.stats._distn_infrastructure.rv_frozen object ate.rv_frozen object at 0x000002960AECBCA0>} SVC(max_iter=1000, ra
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 con
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 110.4min fi
+SVC               precision    recall  f1-score   support
+
+           1       0.95      0.06      0.12      2285
+           2       0.99      0.06      0.12      3913
+           3       1.00      0.10      0.19      2404
+           4       0.17      1.00      0.29      1847
+           5       1.00      0.31      0.48      1146
+           6       1.00      0.39      0.56       435
+
+    accuracy                           0.25     12030
+   macro avg       0.85      0.32      0.29     12030
+weighted avg       0.86      0.25      0.21     12030
+
+KNN {'n_neighbors': <scipy.stats._distn_infrastructure.rv_frozenructure.rv_frozen object at 0x000002960AEDA430>} KNeighborsClass
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 21.9min fin
+KNN               precision    recall  f1-score   support
+
+           1       0.37      0.59      0.46      2285
+           2       0.47      0.56      0.51      3913
+           3       0.45      0.35      0.39      2404
+           4       0.65      0.40      0.49      1847
+           5       0.78      0.40      0.53      1146
+           6       0.89      0.40      0.55       435
+
+    accuracy                           0.48     12030
+   macro avg       0.60      0.45      0.49     12030
+weighted avg       0.52      0.48      0.48     12030
+
+MLP {'hidden_layer_sizes': <scipy.stats._distn_infrastructure.rvect at 0x000002960AEDA9A0>} MLPClassifier(random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 57.3min fin
+MLP               precision    recall  f1-score   support
+
+           1       0.47      0.21      0.29      2285
+           2       0.36      0.80      0.50      3913
+           3       0.27      0.06      0.09      2404
+           4       0.30      0.17      0.22      1847
+           5       0.28      0.16      0.20      1146
+           6       0.30      0.05      0.08       435
+
+    accuracy                           0.35     12030
+   macro avg       0.33      0.24      0.23     12030
+weighted avg       0.34      0.35      0.29     12030
+
+ELM {'n_hidden': <scipy.stats._distn_infrastructure.rv_frozen ob00002960AEDAD00>} ELMClassifier(activation_func='identity', rand0)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  4.3min fin
+ELM               precision    recall  f1-score   support
+
+           1       0.47      0.22      0.30      2285
+           2       0.36      0.82      0.50      3913
+           3       0.25      0.06      0.10      2404
+           4       0.32      0.21      0.25      1847
+           5       0.25      0.02      0.03      1146
+           6       0.48      0.03      0.06       435
+
+    accuracy                           0.36     12030
+   macro avg       0.36      0.23      0.21     12030
+weighted avg       0.35      0.36      0.28     12030
+
+The syntax of the command is incorrect.
+0 ESTAGIOF_EQ
+
+=====================================================================
+Dataset                    : Scenario 3 -- ESTAGIOF_EQ
+Number of training samples : 40100
+Number of testing  samples : 0
+Number of features         : 25
+Normalization              : MinMax
+Task                       : classification
+Reference                  : https://www.sciencedirect.com/scienpii/S2352914818302387
+=====================================================================
+
+XGB {'n_estimators': <scipy.stats._distn_infrastructure.rv_froze 0x0000029677A1A8E0>, 'max_depth': <scipy.stats._distn_infrastruozen object at 0x000002960AE90CD0>, 'learning_rate': <scipy.statfrastructure.rv_frozen object at 0x000002960AE90C10>, 'gamma': <._distn_infrastructure.rv_frozen object at 0x000002960AE90790>, : <scipy.stats._distn_infrastructure.rv_frozen object at 0x00000>, 'reg_lambda': <scipy.stats._distn_infrastructure.rv_frozen ob00002960AECB520>} XGBClassifier(base_score=None, booster=None, clevel=None,
+              colsample_bynode=None, colsample_bytree=None, gamm
+              gpu_id=None, importance_type='gain', interaction_cNone,
+              learning_rate=None, max_delta_step=None, max_depth
+              min_child_weight=None, missing=nan, monotone_const,
+              n_estimators=100, n_jobs=None, num_parallel_tree=N
+              random_state=100, reg_alpha=None, reg_lambda=None,
+              scale_pos_weight=None, subsample=None, tree_method
+              validate_parameters=None, verbosity=None)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 265.0min fi
+XGB               precision    recall  f1-score   support
+
+           1       0.93      0.94      0.93      2285
+           2       0.92      0.95      0.94      3913
+           3       0.94      0.92      0.93      2404
+           4       0.97      0.94      0.95      1847
+           5       0.98      0.98      0.98      1146
+           6       1.00      1.00      1.00       435
+
+    accuracy                           0.94     12030
+   macro avg       0.96      0.95      0.95     12030
+weighted avg       0.94      0.94      0.94     12030
+
+LR {'C': <scipy.stats._distn_infrastructure.rv_frozen object at AECB880>, 'l1_ratio': <scipy.stats._distn_infrastructure.rv_frozt 0x000002960AECBB80>} LogisticRegression(random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  4.6min fin
+LR               precision    recall  f1-score   support
+
+           1       0.59      0.44      0.50      2285
+           2       0.42      0.72      0.53      3913
+           3       0.31      0.10      0.15      2404
+           4       0.37      0.39      0.38      1847
+           5       0.39      0.21      0.27      1146
+           6       0.38      0.23      0.29       435
+
+    accuracy                           0.42     12030
+   macro avg       0.41      0.35      0.35     12030
+weighted avg       0.42      0.42      0.39     12030
+
+SVC {'C': <scipy.stats._distn_infrastructure.rv_frozen object at0AECBEB0>, 'gamma': <scipy.stats._distn_infrastructure.rv_frozen
+0x000002960AECBCA0>} SVC(max_iter=1000, random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 63.7min fin
+SVC               precision    recall  f1-score   support
+
+           1       0.27      0.96      0.42      2285
+           2       0.60      0.09      0.16      3913
+           3       0.72      0.10      0.18      2404
+           4       0.96      0.76      0.85      1847
+           5       0.98      0.98      0.98      1146
+           6       1.00      1.00      1.00       435
+
+    accuracy                           0.48     12030
+   macro avg       0.76      0.65      0.60     12030
+weighted avg       0.67      0.48      0.43     12030
+
+KNN {'n_neighbors': <scipy.stats._distn_infrastructure.rv_frozen
+0x000002960AEDA2E0>, 'p': <scipy.stats._distn_infrastructure.rv_ct at 0x000002960AEDA430>} KNeighborsClassifier()
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 18.5min fin
+KNN               precision    recall  f1-score   support
+
+           1       0.94      0.93      0.94      2285
+           2       0.93      0.94      0.93      3913
+           3       0.93      0.93      0.93      2404
+           4       0.97      0.95      0.96      1847
+           5       0.99      0.98      0.99      1146
+           6       1.00      1.00      1.00       435
+
+    accuracy                           0.94     12030
+   macro avg       0.96      0.95      0.96     12030
+weighted avg       0.94      0.94      0.94     12030
+
+MLP {'hidden_layer_sizes': <scipy.stats._distn_infrastructure.rvect at 0x000002960AEDA9A0>} MLPClassifier(random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 100.9min fi
+MLP               precision    recall  f1-score   support
+
+           1       0.70      0.68      0.69      2285
+           2       0.68      0.74      0.71      3913
+           3       0.68      0.62      0.65      2404
+           4       0.72      0.73      0.72      1847
+           5       0.87      0.81      0.84      1146
+           6       0.92      0.97      0.94       435
+
+    accuracy                           0.72     12030
+   macro avg       0.76      0.76      0.76     12030
+weighted avg       0.72      0.72      0.72     12030
+
+ELM {'n_hidden': <scipy.stats._distn_infrastructure.rv_frozen ob00002960AEDAD00>} ELMClassifier(activation_func='identity', rand0)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 conkers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  5.1min fin
+ELM               precision    recall  f1-score   support
+
+           1       0.61      0.44      0.51      2285
+           2       0.51      0.74      0.61      3913
+           3       0.50      0.34      0.41      2404
+           4       0.49      0.48      0.48      1847
+           5       0.63      0.48      0.54      1146
+           6       0.81      0.70      0.75       435
+
+    accuracy                           0.54     12030
+   macro avg       0.59      0.53      0.55     12030
+weighted avg       0.55      0.54      0.53     12030
+
+The syntax of the command is incorrect.
+0 ESTAGIOF_EQ
+
+=====================================================================
+Dataset                    : Scenario 4 -- ESTAGIOF_EQ
+Number of training samples : 40100
+Number of testing  samples : 0
+Number of features         : 50
+Normalization              : MinMax
+Task                       : classification
+Reference                  : https://www.sciencedirect.com/scienpii/S2352914818302387
+=====================================================================
+
+XGB {'n_estimators': <scipy.stats._distn_infrastructure.rv_froze 0x0000029677A1A8E0>, 'max_depth': <scipy.stats._distn_infrastruozen object at 0x000002960AE90CD0>, 'learning_rate': <scipy.statfrastructure.rv_frozen object at 0x000002960AE90C10>, 'gamma': <ree=None, gamma=None,                   at 0x000002960AE90790>, 
+              gpu_id=None, importance_t_frozen object at 0x00000ype='gain',bda': <scipy.stats._distn_infrastructure.rv_frozen ob interaction_constraints=None,         ore=None, booster=None, c
+              learning_rate=None, max_delta_step=N   colsample_bynode=None, colsample_bytree=None, gammone, max_depth=None,                   ype='gain', interaction_c
+              min_child_weight=None, missing=nan,    learning_rate=None, max_delta_step=None, max_depthmonotone_constraints=None,             ssing=nan, monotone_const
+e,
+e,
+              learning_rate=None, max_delta_step=None, max_depth              min_child_weight=None, missing=nan,        e_const
+monotone_constraints=None,                        monoton
+              n_estimators=100, n_jobs=None, num_p       _tree=Narallel_tree=None,                                arallela=None,
+              random_state=100, reg_alpha=None, re       _methodg_lambda=None,                                    g_lambd
+              scale_pos_weight=None, subsample=Non        fitse, tree_method=None,                              e, treeh 1 con
+              validate_parameters=None, verbosity=None)                                             None)  
+Fitting 3 folds for each of 100 candidates, totalling 300ing 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend witend with 1 concurrent workers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 513.4min finished
+XGB               precision    recall  f1-score   
+support
+
+           1       1.00      0.99      1.00      2285
+           2       1.00      1.00      1.00      3913
+           3       1.00      1.00      1.00      2404
+           4       1.00      1.00      1.00      1847
+           5       1.00      0.99      1.00      1146
+           6       1.00      1.00      1.00       
+435
+
+    accuracy                           1.00     12030
+   macro avg       1.00      1.00      1.00     12030
+weighted avg       1.00      1.00      1.00     12030
+
+LR {'C': <scipy.stats._distn_infrastructure.rv_frozen object at 0x000002960AECB880>, 'l1_ratio': <scipy.stats._distn_infrastructure.rv_frozen object at 0x000002960AECBB80>} LogisticRegression(random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  5.8min finished
+LR               precision    recall  f1-score   support
+
+           1       0.52      0.25      0.34      2285
+           2       0.41      0.78      0.54      3913
+           3       0.32      0.14      0.19      2404
+           4       0.34      0.39      0.36      1847
+           5       0.36      0.12      0.18      1146
+           6       0.37      0.05      0.09       
+435
+
+    accuracy                           0.40     12030
+   macro avg       0.39      0.29      0.28     12030030                                               030
+weighted avg       0.40      0.40      0.35     12030                                               ozen object at 0x000002960AECBE
+                                                  t 0x000002960AECBCA0>} SVC(max_
+SVC {'C': <scipy.stats._distn_infrastructure.rv_frozen object at 0x000002960AECBEB0>, 'gamma': <sciping 300 fitsy.stats._distn_infrastructure.rv_frozen object at end with 1 concurrent workers.
+0x000002960AECBCA0>} SVC(max_iter=1000, random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 230.2min finished
+SVC               precision    recall  f1-score   
+support
+
+           1       0.99      0.07      0.12      2285
+           2       0.37      1.00      0.53      3913
+           3       1.00      0.10      0.19      2404
+           4       1.00      0.21      0.34      1847
+           5       1.00      0.32      0.48      1146
+           6       1.00      0.39      0.56       
+435
+
+    accuracy                           0.43     12030
+   macro avg       0.89      0.35      0.37     12030
+weighted avg       0.79      0.43      0.35     12030
+
+KNN {'n_neighbors': <scipy.stats._distn_infrastructure.rv_frozen object at 0x000002960AEDA2E0>, 'p': <scipy.stats._distn_infrastructure.rv_frozen object at 0x000002960AEDA430>} KNeighborsClassifier()
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers. 
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 51.0min finished
+KNN               precision    recall  f1-score   support
+
+           1       0.47      0.49      0.48      2285    
+           2       0.54      0.57      0.56      3913
+           3       0.44      0.46      0.45      2404
+           4       0.58      0.52      0.54      1847
+           5       0.63      0.53      0.58      1146
+           6       0.62      0.49      0.55       435
+
+    accuracy                           0.52     12030
+   macro avg       0.55      0.51      0.53     12030
+weighted avg       0.52      0.52      0.52     12030
+
+MLP {'hidden_layer_sizes': <scipy.stats._distn_infrastructure.rv_frozen object at 
+0x000002960AEDA9A0>} MLPClassifier(random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.  
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed: 102.4min finished
+MLP               precision    recall  f1-score   support
+
+           1       0.69      0.43      0.53      2285
+           2       0.52      0.76      0.61      3913
+           3       0.54      0.22      0.32      2404
+           4       0.47      0.56      0.51      1847
+           5       0.55      0.60      0.58      1146
+           6       0.69      0.71      0.70       435
+
+    accuracy                           0.54     12030
+   macro avg       0.58      0.55      0.54     12030
+weighted avg       0.56      0.54      0.52     12030
+
+ELM {'n_hidden': <scipy.stats._distn_infrastructure.rv_frozen object at 0x000002960AEDAD00>} ELMClassifier(activation_func='identity', random_state=100)
+Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+[Parallel(n_jobs=1)]: Done 300 out of 300 | elapsed:  5.0min finished
+ELM               precision    recall  f1-score   support
+
+           1       0.49      0.23      0.31      2285
+           2       0.41      0.80      0.55      3913
+           3       0.27      0.06      0.09      2404
+           4       0.37      0.47      0.41      1847
+           5       0.41      0.14      0.21      1146
+           6       0.52      0.21      0.30       435
+
+    accuracy                           0.41     12030
+   macro avg       0.41      0.32      0.31     12030
+weighted avg       0.40      0.41      0.35     12030
