@@ -1,4 +1,3 @@
-  
 #!/usr/bin/python
 # -*- coding: utf-8 -*-    
 import numpy as np
@@ -15,55 +14,9 @@ from sklearn.model_selection import (GridSearchCV, KFold, cross_val_predict,
                                      RandomizedSearchCV,
                                      cross_val_predict,train_test_split)
 from sklearn.metrics import r2_score, mean_squared_error
-#from sklearn.metrics.regression import mean_squared_error, mean_absolute_error, median_absolute_error
-#from sklearn.metrics.classification import accuracy_score, f1_score, precision_score
-from sklearn.decomposition import KernelPCA
-from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
-from sklearn.pipeline import Pipeline
-
-from sklearn.gaussian_process import  GaussianProcessClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVR, LinearSVR, SVC
-from sklearn.linear_model import ElasticNet, Ridge, PassiveAggressiveRegressor, LogisticRegression, BayesianRidge
-from sklearn.neighbors import KNeighborsRegressor, KNeighborsClassifier
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, VotingRegressor
-from sklearn.neural_network import MLPRegressor, MLPClassifier
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.kernel_ridge import KernelRidge
-from xgboost import  XGBRegressor
-from sklearn.naive_bayes import GaussianNB
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import (RBF, Matern, RationalQuadratic,
-                                              ExpSineSquared, DotProduct,
-                                              ConstantKernel)
-
-from ELM import ELMClassifier
-#import re  
 import os
-#from sklearn.gaussian_process import GaussianProcess
-#from catboost import Pool, CatBoostRegressor
-#from pyearth import Earth as MARS
-#from sklearn.ensemble import StackingRegressor
-#from sklearn.experimental import enable_hist_gradient_boosting
-#from sklearn.ensemble import HistGradientBoostingRegressor
-#from sklearn.kernel_approximation import RBFSampler,SkewedChi2Sampler
-
-#from util.ELM import  ELMRegressor, ELMRegressor
-#from util.MLP import MLPRegressor as MLPR
-#from util.RBFNN import RBFNNRegressor, RBFNN
-#from util.LSSVR import LSSVR
-
 from scipy import stats
-
-from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures, MaxAbsScaler, Normalizer, StandardScaler, MaxAbsScaler, FunctionTransformer, QuantileTransformer
-from sklearn.svm import SVC
-from xgboost import XGBClassifier
 from sklearn import metrics
-#from utils.confusion_matrix_pretty_print import plot_confusion_matrix_from_data
-#from ds_utils.metrics import plot_confusion_matrix
 from sklearn.metrics import classification_report
 
 import tensorflow as tf
@@ -232,23 +185,23 @@ for run in range(run0, n_runs):
         # KNeighborsClassifier()
         # ),
         
-         (
+        #(
         # #
         # # acronym
         # #
-         'MLP',
-         #
-         # distributions
-         #
-         dict( 
-              hidden_layer_sizes=randint(low=1, high=100),
-             ),
-         #
-         # estimator
-         #
-         MLPClassifier(activation='relu', random_state=random_seed)
-         ),
-        
+#         'MLP',
+#         #
+#         # distributions
+#         #
+#         dict( 
+#              hidden_layer_sizes=randint(low=1, high=100),
+#             ),
+#         #
+#         # estimator
+#         #
+#         MLPClassifier(activation='relu', random_state=random_seed)
+#         ),
+#        
         # (
         # #
         # # acronym
