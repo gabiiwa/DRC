@@ -7,10 +7,11 @@ import matplotlib.pyplot as pl
 from sklearn import metrics  
 import os
 
+from sklearn.model_selection import train_test_split
 
 from gplearn.genetic import SymbolicClassifier
 from gplearn.genetic import SymbolicRegressor
-import graphviz 
+#import graphviz 
 from IPython.display import Image
 from gplearn.functions import make_function
 
@@ -29,11 +30,12 @@ logical = make_function(function=_logical,
 #%%
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
-            read_data_cenario('cenario1.csv'),
+             read_data_cenario('cenario1.csv'),
             # read_data_cenario('cenario2.csv'),
             # read_data_cenario('cenario3.csv'),
             # read_data_cenario('cenario4.csv')
            ]
+from sklearn.model_selection import train_test_split
 
 random_seed=0
 for dataset in datasets:
@@ -56,11 +58,11 @@ for dataset in datasets:
     normalize        = dataset['normalize'       ]
     n_samples_train  = len(y_train)
     
-    #%%
+    
     dr='gp_'+dataset_name.replace(' ','_').replace("'","").lower()
     path='./pkl_'+dr+'/'
     os.system('mkdir  '+path)
-          
+    #%%      
     for n, target in enumerate(target_names):
         y_train = dataset['y_train'][n]#.reshape(-1,1)
         y_test  = dataset['y_test' ][n]#.reshape(-1,1)
@@ -103,7 +105,7 @@ for dataset in datasets:
         lb.fit(y_train)
         
 
-        est_gp =SymbolicClassifier(population_size=1000, generations=20, stopping_criteria=0.01, 
+        est_gp =SymbolicClassifier(population_size=100, generations=20, stopping_criteria=0.01, 
                 const_range=(-1e3, 1e3),
                 function_set=function_set, 
                 transformer='sigmoid', metric='log loss', parsimony_coefficient=0.001, p_crossover=0.8, 
@@ -112,6 +114,8 @@ for dataset in datasets:
                 verbose=1, random_state=random_seed) 
         
        
+        X_train, X_test = random_state=42
+        
         y_train_ =  np.squeeze(lb.transform(y_train))
         # print(len(y_train_))
         # y_train_new = []
@@ -123,34 +127,34 @@ for dataset in datasets:
 
         # est_gp.fit(X_train,y_train_)
         # y_train_ = LabelEncoder().fit_transform(y_train)
-        est_gp.fit(X_train,y_train_)
+        for i in range(y_train_.shape[1]):
+            est_gp.fit(X_train,y_train_[:,i], verbose=True)
+            print(est_gp._program)
 
-        print(est_gp._program)
-
-        dot_data = est_gp._program.export_graphviz()
-        graph = graphviz.Source(dot_data)
-        Image(graph)
-        fn=(dataset_name+'__'+target).lower().replace(' ','_').replace('(','').replace(')','').replace('/','_')
-        graph.filename=fn; graph.render()
+            dot_data = est_gp._program.export_graphviz()
+            graph = graphviz.Source(dot_data)
+            Image(graph)
+            fn=(dataset_name+'__'+target).lower().replace(' ','_').replace('(','').replace(')','').replace('/','_')
+            graph.filename=fn; graph.render()
+        
+            clf=est_gp
+            #%%
+            y_pred = clf.predict(X_test)
+            rmse, r2 = metrics.mean_squared_error(y_test, y_pred)**.5, metrics.r2_score(y_test, y_pred)
+            r=sp.stats.pearsonr(y_test.ravel(), y_pred.ravel())[0] 
+            print(rmse, r2,r)
     
-        clf=est_gp
-        #%%
-        y_pred = clf.predict(X_test)
-        rmse, r2 = metrics.mean_squared_error(y_test, y_pred)**.5, metrics.r2_score(y_test, y_pred)
-        r=sp.stats.pearsonr(y_test.ravel(), y_pred.ravel())[0] 
-        print(rmse, r2,r)
-
-        pl.figure(figsize=(16,4)); 
-        #pl.plot([a for a in y_train]+[None for a in y_test]); 
-        pl.plot([None for a in y_train]+[a for a in y_test], 'r-.o', label='Real data');
-        pl.plot([None for a in y_train]+[a for a in y_pred], 'b-', label='Predicted');
-        pl.legend(); pl.title(dataset_name+' -- '+target+'\nRMSE = '+str(rmse)+', '+'R$^2$ = '+str(r2)+', '+'R = '+str(r))
-        pl.show()
-
-        pl.figure(figsize=(6,6)); 
-        pl.plot(y_test, y_pred, 'ro', y_test, y_test, 'k-')
-        pl.title('RMSE = '+str(rmse)+'\n'+'R$^2$ = '+str(r2)+'\n'+'R = '+str(r))
-        pl.show()
+            pl.figure(figsize=(16,4)); 
+            #pl.plot([a for a in y_train]+[None for a in y_test]); 
+            pl.plot([None for a in y_train]+[a for a in y_test], 'r-.o', label='Real data');
+            pl.plot([None for a in y_train]+[a for a in y_pred], 'b-', label='Predicted');
+            pl.legend(); pl.title(dataset_name+' -- '+target+'\nRMSE = '+str(rmse)+', '+'R$^2$ = '+str(r2)+', '+'R = '+str(r))
+            pl.show()
+    
+            pl.figure(figsize=(6,6)); 
+            pl.plot(y_test, y_pred, 'ro', y_test, y_test, 'k-')
+            pl.title('RMSE = '+str(rmse)+'\n'+'R$^2$ = '+str(r2)+'\n'+'R = '+str(r))
+            pl.show()
 
 #%%-----------------------------------------------------------------------------
 

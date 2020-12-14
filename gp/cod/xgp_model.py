@@ -82,7 +82,7 @@ for dataset in datasets:
                     #logical,
                     ]
                     
-        est_gp = xgp.XGPRegressor(
+        est_gp = xgp.XGPClassifier(
                                     flavor='boosting',
                                     loss_metric='mse',
                                     #funcs='add,sub,mul,div,cos,sin,log,exp,max,min,pow',
