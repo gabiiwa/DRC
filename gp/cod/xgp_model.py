@@ -1,3 +1,4 @@
+#%%
 #!/usr/bin/python
 # -*- coding: utf-8 -*
 import numpy as np
@@ -9,25 +10,34 @@ import os
 import xgp
 
 from read_data import *
+from sklearn.model_selection import train_test_split
+from gplearn.functions import make_function
+from sklearn.preprocessing import LabelBinarizer
 #%%
 def _logical(x1, x2, x3, x4):
     return np.where(x1 > x2, x3, x4)
 
 #%%
 pd.options.display.float_format = '{:.3f}'.format
+# datasets = [
+#             #read_data_ldc_tayfur( case = 0 ),
+#             #read_data_tran2019(),
+#             #read_data_ldc_vijay(),
+#             #read_data_iraq_sequence(look_back=5, kind='ml'),
+#             #read_data_cahora_bassa_sequence(look_back=1, look_forward=1, kind='ml', unit='month'),
+#             #read_data_cahora_bassa_sequence(look_back=2, look_forward=1, kind='ml', unit='month'),
+#             read_data_cahora_bassa_sequence(look_back=1, look_forward=1, kind='ml', unit='month'),
+#             #read_data_british_columbia_daily_sequence(look_back=10, look_forward=1, kind='ml', roll=False,),
+#             #read_data_british_columbia_daily_sequence(look_back=10, look_forward=1, kind='ml', roll=True,),
+#             #read_data_cahora_bassa_sequence(look_back=6, look_forward=1, kind='ml', unit='month'),
+#             #read_data_cahora_bassa_sequence(look_back=9, look_forward=1, kind='ml', unit='month'),
+#             #read_data_cahora_bassa_sequence(look_back=21, look_forward=7, kind='ml', unit='day'),
+#            ]
 datasets = [
-            #read_data_ldc_tayfur( case = 0 ),
-            #read_data_tran2019(),
-            #read_data_ldc_vijay(),
-            #read_data_iraq_sequence(look_back=5, kind='ml'),
-            #read_data_cahora_bassa_sequence(look_back=1, look_forward=1, kind='ml', unit='month'),
-            #read_data_cahora_bassa_sequence(look_back=2, look_forward=1, kind='ml', unit='month'),
-            read_data_cahora_bassa_sequence(look_back=1, look_forward=1, kind='ml', unit='month'),
-            #read_data_british_columbia_daily_sequence(look_back=10, look_forward=1, kind='ml', roll=False,),
-            #read_data_british_columbia_daily_sequence(look_back=10, look_forward=1, kind='ml', roll=True,),
-            #read_data_cahora_bassa_sequence(look_back=6, look_forward=1, kind='ml', unit='month'),
-            #read_data_cahora_bassa_sequence(look_back=9, look_forward=1, kind='ml', unit='month'),
-            #read_data_cahora_bassa_sequence(look_back=21, look_forward=7, kind='ml', unit='day'),
+            read_data_cenario('cenario1.csv'),
+            # read_data_cenario('cenario2.csv'),
+            # read_data_cenario('cenario3.csv'),
+            # read_data_cenario('cenario4.csv')
            ]
 
 random_seed=0
@@ -38,10 +48,10 @@ for dataset in datasets:
     target_names     = dataset['target_names'    ]
     n_samples        = dataset['n_samples'       ]
     n_features       = dataset['n_features'      ]
-    X_train          = dataset['X_train'         ]
-    X_test           = dataset['X_test'          ]
-    y_train          = dataset['y_train'         ]
-    y_test           = dataset['y_test'          ]
+    X                = dataset['X_train'         ]
+    # X_test           = dataset['X_test'          ]
+    y                = dataset['y_train'         ][0]
+    # y_test           = dataset['y_test'          ]
     targets          = dataset['targets'         ]
     true_labels      = dataset['true_labels'     ]
     predicted_labels = dataset['predicted_labels']
@@ -49,17 +59,21 @@ for dataset in datasets:
     items            = dataset['items'           ]
     reference        = dataset['reference'       ]
     normalize        = dataset['normalize'       ]
-    n_samples_train  = len(y_train)
-    
+    # n_samples_train  = len(y_train)
+
     #%%
     dr='gp_'+dataset_name.replace(' ','_').replace("'","").lower()
     path='./pkl_'+dr+'/'
     os.system('mkdir  '+path)
           
     for n, target in enumerate(target_names):
-        y_train = dataset['y_train'][n]#.reshape(-1,1)
-        y_test  = dataset['y_test' ][n]#.reshape(-1,1)
-        n_samples_test                  = len(y_test)
+        # y_train = dataset['y_train'][n]#.reshape(-1,1)
+        # y_test  = dataset['y_test' ][n]#.reshape(-1,1)
+        # n_samples_test                  = len(y_test)
+        X_train,X_test,y_train,y_test = train_test_split(X,y, test_size=0.30,random_state=42)
+        
+        n_samples_train = len(y_train)
+        n_samples_test = len(y_test)
     
         s=''+'\n'
         s+='='*80+'\n'
@@ -84,7 +98,8 @@ for dataset in datasets:
                     
         est_gp = xgp.XGPClassifier(
                                     flavor='boosting',
-                                    loss_metric='mse',
+                                    # loss_metric='mse',
+                                    loss_metric='logloss',
                                     #funcs='add,sub,mul,div,cos,sin,log,exp,max,min,pow',
                                     funcs='add,sub,mul,div,cos,min,max',
                                     n_individuals=1000,

@@ -30,8 +30,8 @@ logical = make_function(function=_logical,
 #%%
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
-             read_data_cenario('cenario1.csv'),
-            # read_data_cenario('cenario2.csv'),
+            #  read_data_cenario('cenario1.csv'),
+            read_data_cenario('cenario2.csv'),
             # read_data_cenario('cenario3.csv'),
             # read_data_cenario('cenario4.csv')
            ]
@@ -45,10 +45,10 @@ for dataset in datasets:
     target_names     = dataset['target_names'    ]
     n_samples        = dataset['n_samples'       ]
     n_features       = dataset['n_features'      ]
-    X_train          = dataset['X_train'         ]
-    X_test           = dataset['X_test'          ]
-    y_train          = dataset['y_train'         ]
-    y_test           = dataset['y_test'          ]
+    X                = dataset['X_train'         ]
+    # X_test           = dataset['X_test'          ]
+    y                = dataset['y_train'         ][0]
+    # y_test           = dataset['y_test'          ]
     targets          = dataset['targets'         ]
     true_labels      = dataset['true_labels'     ]
     predicted_labels = dataset['predicted_labels']
@@ -56,7 +56,7 @@ for dataset in datasets:
     items            = dataset['items'           ]
     reference        = dataset['reference'       ]
     normalize        = dataset['normalize'       ]
-    n_samples_train  = len(y_train)
+    
     
     
     dr='gp_'+dataset_name.replace(' ','_').replace("'","").lower()
@@ -64,9 +64,12 @@ for dataset in datasets:
     os.system('mkdir  '+path)
     #%%      
     for n, target in enumerate(target_names):
-        y_train = dataset['y_train'][n]#.reshape(-1,1)
-        y_test  = dataset['y_test' ][n]#.reshape(-1,1)
-        n_samples_test                  = len(y_test)
+        # y = dataset['y_train'][n]#.reshape(-1,1)
+        # # y_test  = dataset['y_test' ][n]#.reshape(-1,1)
+        X_train,X_test,y_train,y_test = train_test_split(X,y, test_size=0.30,random_state=42)
+        
+        n_samples_train = len(y_train)
+        n_samples_test = len(y_test)
     
         s=''+'\n'
         s+='='*80+'\n'
@@ -101,6 +104,7 @@ for dataset in datasets:
         #                         n_jobs=-1, parsimony_coefficient=0.01, 
         #                         random_state=random_seed)
         
+        
         lb = preprocessing.LabelBinarizer()
         lb.fit(y_train)
         
@@ -110,51 +114,43 @@ for dataset in datasets:
                 function_set=function_set, 
                 transformer='sigmoid', metric='log loss', parsimony_coefficient=0.001, p_crossover=0.8, 
                 p_subtree_mutation=0.05, p_hoist_mutation=0.05, p_point_mutation=0.05, p_point_replace=0.05, 
-                max_samples=1.0, feature_names=feature_names, warm_start=False, low_memory=False, n_jobs=-1,
-                verbose=1, random_state=random_seed) 
+                max_samples=1.0, feature_names=feature_names, warm_start=False, low_memory=False, n_jobs=-1
+                , random_state=random_seed) #verbose=1
         
        
-        X_train, X_test = random_state=42
+        # X_train, X_test = random_state=42
         
         y_train_ =  np.squeeze(lb.transform(y_train))
-        # print(len(y_train_))
-        # y_train_new = []
-        # cont=0
-        # for i in range(y_train_.shape[0]):
-        #     for j in range(y_train_.shape[1]):
-        #         y_train_new.append(y_train[cont])
-        #         cont+=1
+      
 
-        # est_gp.fit(X_train,y_train_)
-        # y_train_ = LabelEncoder().fit_transform(y_train)
         for i in range(y_train_.shape[1]):
-            est_gp.fit(X_train,y_train_[:,i], verbose=True)
+            est_gp.fit(X_train,y_train_[:,i])#, verbose=True
             print(est_gp._program)
 
-            dot_data = est_gp._program.export_graphviz()
-            graph = graphviz.Source(dot_data)
-            Image(graph)
-            fn=(dataset_name+'__'+target).lower().replace(' ','_').replace('(','').replace(')','').replace('/','_')
-            graph.filename=fn; graph.render()
+            # dot_data = est_gp._program.export_graphviz()
+            # graph = graphviz.Source(dot_data)
+            # Image(graph)
+            # fn=(dataset_name+'__'+target).lower().replace(' ','_').replace('(','').replace(')','').replace('/','_')
+            # graph.filename=fn; graph.render()
         
             clf=est_gp
             #%%
-            y_pred = clf.predict(X_test)
-            rmse, r2 = metrics.mean_squared_error(y_test, y_pred)**.5, metrics.r2_score(y_test, y_pred)
-            r=sp.stats.pearsonr(y_test.ravel(), y_pred.ravel())[0] 
-            print(rmse, r2,r)
+            # y_pred = clf.predict(X_test)
+            # rmse, r2 = metrics.mean_squared_error(y_test, y_pred)**.5, metrics.r2_score(y_test, y_pred)
+            # r=sp.stats.pearsonr(y_test.ravel(), y_pred.ravel())[0] 
+            # print(rmse, r2,r)
     
             pl.figure(figsize=(16,4)); 
             #pl.plot([a for a in y_train]+[None for a in y_test]); 
             pl.plot([None for a in y_train]+[a for a in y_test], 'r-.o', label='Real data');
-            pl.plot([None for a in y_train]+[a for a in y_pred], 'b-', label='Predicted');
-            pl.legend(); pl.title(dataset_name+' -- '+target+'\nRMSE = '+str(rmse)+', '+'R$^2$ = '+str(r2)+', '+'R = '+str(r))
+            # pl.plot([None for a in y_train]+[a for a in y_pred], 'b-', label='Predicted');
+            # pl.legend(); pl.title(dataset_name+' -- '+target+'\nRMSE = '+str(rmse)+', '+'R$^2$ = '+str(r2)+', '+'R = '+str(r))
             pl.show()
     
-            pl.figure(figsize=(6,6)); 
-            pl.plot(y_test, y_pred, 'ro', y_test, y_test, 'k-')
-            pl.title('RMSE = '+str(rmse)+'\n'+'R$^2$ = '+str(r2)+'\n'+'R = '+str(r))
-            pl.show()
+            # pl.figure(figsize=(6,6)); 
+            # pl.plot(y_test, y_pred, 'ro', y_test, y_test, 'k-')
+            # pl.title('RMSE = '+str(rmse)+'\n'+'R$^2$ = '+str(r2)+'\n'+'R = '+str(r))
+            # pl.show()
 
 #%%-----------------------------------------------------------------------------
 
