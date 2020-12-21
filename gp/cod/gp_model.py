@@ -22,8 +22,8 @@ from sklearn.preprocessing import LabelBinarizer, LabelEncoder, OneHotEncoder
 #%%
 
 def auc_score(y_true, y_pred, sample_weight=None):
-    #fpr  = metrics.f1_score(y_true, y_pred, )
-    fpr  = metrics.f1_score(y_true, y_pred, average='micro')
+    fpr  = metrics.accuracy_score(y_true, y_pred, )
+    #fpr  = metrics.f1_score(y_true, y_pred, average='micro')
     return fpr
 
 auc_scores = make_fitness(function=auc_score, greater_is_better=True)
@@ -38,12 +38,14 @@ logical = make_function(function=_logical,
                         arity=4)
 
 #%%
+from sklearn.datasets import load_breast_cancer
+
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
             read_data_cenario('cenario1.csv'),
-            read_data_cenario('cenario2.csv'),
-            read_data_cenario('cenario3.csv'),
-            read_data_cenario('cenario4.csv')
+            #read_data_cenario('cenario2.csv'),
+            #read_data_cenario('cenario3.csv'),
+            #read_data_cenario('cenario4.csv'),
            ]
 from sklearn.model_selection import train_test_split
 
@@ -96,11 +98,12 @@ for dataset in datasets:
         print(s)
                
         function_set = ['add', 'sub', 'mul', 'div',
-                    'sqrt', 'abs', 'neg', 'inv',
-                    #'log',
+                    #'sqrt', 
+                    'abs', 'neg', 'inv',
+                    'log',
                     #'sin', 'cos', 'tan', 
                     'max', 'min',
-                    #logical,
+                    logical,
                     ]
                     
         lb = preprocessing.LabelBinarizer()
@@ -114,7 +117,7 @@ for dataset in datasets:
 #                                 function_set=function_set,
 #                                 const_range=(-1e3, 1e3),
 #                                 metric='mse',
-#                                 feature_names =  feature_names,
+#                                 feature_names =  featf1_scoreure_names,
 #                                 max_samples=0.9, verbose=1,
 #                                 n_jobs=-1, parsimony_coefficient=0.01, 
 #                                 random_state=random_seed)
@@ -126,8 +129,8 @@ for dataset in datasets:
                                    const_range=(-1e3, 1e3),
                                    function_set=function_set, 
                                    transformer='sigmoid', 
-                                   #metric='log loss', 
-                                   metric=auc_scores,
+                                   metric='log loss', 
+                                   #metric=auc_scores,
                                    parsimony_coefficient=0.001, 
                                    p_crossover=0.8, 
                                    p_subtree_mutation=0.05, 
@@ -138,7 +141,7 @@ for dataset in datasets:
                                    feature_names=feature_names, 
                                    warm_start=False, 
                                    low_memory=False, 
-                                   n_jobs=1,
+                                   n_jobs=-1,
                                    random_state=random_seed,
                                    verbose=1,
                                    )
