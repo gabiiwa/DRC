@@ -21,11 +21,7 @@ from read_data import *
 from sklearn.preprocessing import LabelBinarizer
 import numpy as np
 #%%
-# rng = check_random_state(0)
-# cancer = load_breast_cancer()
-# perm = rng.permutation(cancer.target.size)
-# cancer.data = cancer.data[perm]
-# cancer.target = cancer.target[perm]
+
 
 datasets = [
             read_data_cenario('cenario1.csv'),
@@ -34,30 +30,35 @@ datasets = [
             # read_data_cenario('cenario4.csv')
            ]
 X = datasets[0]['X_train']
-#X_test = dataset['X_test']
 y = datasets[0]['y_train'][0]
 
+#preenchendo valores nulos
 X=pd.DataFrame(X).fillna(0)
+
 X_train,X_test,y_train,y_test = train_test_split(X,y,
                                 test_size=0.30,
                                 random_state=42)
 lb = LabelBinarizer()
 lb.fit(y_train)
+#transformei os dois conjutos de y para duas
+# classes, ao invés de 6
 y_train =  np.squeeze(lb.transform(y_train))
 y_test =  np.squeeze(lb.transform(y_test))
 #%%
 est = SymbolicClassifier(parsimony_coefficient=.01,
-                         random_state=0)#feature_names=cancer.feature_names,
-# est.fit(cancer.data[:400], cancer.target[:400])
-# for i in range(y_train_.shape[1]):
+                         random_state=0)
+#esse i fazia parte do for. Decidi fazer, considerando 
+# uma única coluna, para observar o resultado apenas
 i=0
 est.fit(X_train,y_train[:,i])
 
 # %%
 
-# y_true = cancer.target[400:]
-# y_score = est.predict_proba(cancer.data[400:])[:,1]
+#o resultado do y_score retorna um shape (12030, 2)
+#e o roc_auc_score pede para comparar o y_test[:,i] com um 
+#array 1d, por isso fiz y_score[:,1]
 y_score = est.predict_proba(X_test)
+print("Predict_proba:")
 roc_auc_score(y_test[:,i], y_score[:,1],multi_class='ovr')
 
 # %%
