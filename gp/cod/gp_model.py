@@ -30,8 +30,8 @@ logical = make_function(function=_logical,
 #%%
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
-            #  read_data_cenario('cenario1.csv'),
-            read_data_cenario('cenario2.csv'),
+            read_data_cenario('cenario1.csv'),
+            # read_data_cenario('cenario2.csv'),
             # read_data_cenario('cenario3.csv'),
             # read_data_cenario('cenario4.csv')
            ]
@@ -57,7 +57,7 @@ for dataset in datasets:
     reference        = dataset['reference'       ]
     normalize        = dataset['normalize'       ]
     
-    
+    X=pd.DataFrame(X).fillna(0)
     
     dr='gp_'+dataset_name.replace(' ','_').replace("'","").lower()
     path='./pkl_'+dr+'/'
@@ -115,7 +115,7 @@ for dataset in datasets:
                 transformer='sigmoid', metric='log loss', parsimony_coefficient=0.001, p_crossover=0.8, 
                 p_subtree_mutation=0.05, p_hoist_mutation=0.05, p_point_mutation=0.05, p_point_replace=0.05, 
                 max_samples=1.0, feature_names=feature_names, warm_start=False, low_memory=False, n_jobs=-1
-                , random_state=random_seed) #verbose=1
+                , random_state=random_seed) #verbose=1 
         
        
         # X_train, X_test = random_state=42
@@ -124,9 +124,10 @@ for dataset in datasets:
       
 
         for i in range(y_train_.shape[1]):
+            
             est_gp.fit(X_train,y_train_[:,i])#, verbose=True
             print(est_gp._program)
-
+            
             # dot_data = est_gp._program.export_graphviz()
             # graph = graphviz.Source(dot_data)
             # Image(graph)
@@ -135,17 +136,18 @@ for dataset in datasets:
         
             clf=est_gp
             #%%
-            # y_pred = clf.predict(X_test)
+            y_pred = clf.predict(X_test)
+            print(metrics.classification_report(y_test, y_pred, ))
             # rmse, r2 = metrics.mean_squared_error(y_test, y_pred)**.5, metrics.r2_score(y_test, y_pred)
             # r=sp.stats.pearsonr(y_test.ravel(), y_pred.ravel())[0] 
             # print(rmse, r2,r)
     
-            pl.figure(figsize=(16,4)); 
-            #pl.plot([a for a in y_train]+[None for a in y_test]); 
-            pl.plot([None for a in y_train]+[a for a in y_test], 'r-.o', label='Real data');
-            # pl.plot([None for a in y_train]+[a for a in y_pred], 'b-', label='Predicted');
-            # pl.legend(); pl.title(dataset_name+' -- '+target+'\nRMSE = '+str(rmse)+', '+'R$^2$ = '+str(r2)+', '+'R = '+str(r))
-            pl.show()
+            # pl.figure(figsize=(16,4)); 
+            # # #pl.plot([a for a in y_train]+[None for a in y_test]); 
+            # pl.plot([None for a in y_train]+[a for a in y_test], 'r-.o', label='Real data');
+            # # # pl.plot([None for a in y_train]+[a for a in y_pred], 'b-', label='Predicted');
+            # # # pl.legend(); pl.title(dataset_name+' -- '+target+'\nRMSE = '+str(rmse)+', '+'R$^2$ = '+str(r2)+', '+'R = '+str(r))
+            # pl.show()
     
             # pl.figure(figsize=(6,6)); 
             # pl.plot(y_test, y_pred, 'ro', y_test, y_test, 'k-')
