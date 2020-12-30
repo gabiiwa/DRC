@@ -14,11 +14,21 @@ from gplearn.genetic import SymbolicRegressor
 #import graphviz 
 from IPython.display import Image
 from gplearn.functions import make_function
+from gplearn.fitness import make_fitness
 
 from read_data import *
 from sklearn import preprocessing
 from sklearn.preprocessing import LabelBinarizer, LabelEncoder, OneHotEncoder
 #%%
+
+def auc_score(y_true, y_pred, sample_weight=None):
+    fpr  = metrics.accuracy_score(y_true, y_pred, )
+    #fpr  = metrics.f1_score(y_true, y_pred, average='micro')
+    return fpr
+
+auc_scores = make_fitness(function=auc_score, greater_is_better=True)
+
+
 def _logical(x1, x2, x3, x4):
     return np.where(x1 > x2, x3, x4)
 
@@ -28,6 +38,8 @@ logical = make_function(function=_logical,
                         arity=4)
 
 #%%
+from sklearn.datasets import load_breast_cancer
+
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
             read_data_cenario('cenario1.csv'),
@@ -85,26 +97,14 @@ for dataset in datasets:
         print(s)
                
         function_set = ['add', 'sub', 'mul', 'div',
-                    'sqrt', 'abs', 'neg', 'inv',
-                    #'log',
+                    #'sqrt', 
+                    'abs', 'neg', 'inv',
+                    'log',
                     #'sin', 'cos', 'tan', 
                     'max', 'min',
-                    #logical,
+                    logical,
                     ]
                     
-        # est_gp = SymbolicRegressor(population_size=5000,
-        #                         generations=20, stopping_criteria=0.01,
-        #                         p_crossover=0.8, p_subtree_mutation=0.05,
-        #                         p_hoist_mutation=0.05, p_point_mutation=0.05,
-        #                         function_set=function_set,
-        #                         const_range=(-1e3, 1e3),
-        #                         metric='mse',
-        #                         feature_names =  feature_names,
-        #                         max_samples=0.9, verbose=1,
-        #                         n_jobs=-1, parsimony_coefficient=0.01, 
-        #                         random_state=random_seed)
-        
-        
         lb = preprocessing.LabelBinarizer()
         lb.fit(y_train)
         
@@ -117,6 +117,30 @@ for dataset in datasets:
                 max_samples=1.0, feature_names=feature_names, warm_start=False, low_memory=False, n_jobs=-1
                 , random_state=random_seed) #verbose=1 
         
+        
+        est_gp =SymbolicClassifier(population_size=100, 
+                                   generations=50, 
+                                   stopping_criteria=0.001, 
+                                   const_range=(-1e3, 1e3),
+                                   function_set=function_set, 
+                                   transformer='sigmoid', 
+                                   metric='log loss', 
+                                   #metric=auc_scores,
+                                   parsimony_coefficient=0.001, 
+                                   p_crossover=0.8, 
+                                   p_subtree_mutation=0.05, 
+                                   p_hoist_mutation=0.05, 
+                                   p_point_mutation=0.05, 
+                                   p_point_replace=0.05, 
+                                   max_samples=1.0, 
+                                   feature_names=feature_names, 
+                                   warm_start=False, 
+                                   low_memory=False, 
+                                   n_jobs=-1,
+                                   random_state=random_seed,
+                                   verbose=1,
+                                   )
+#        
        
         # X_train, X_test = random_state=42
         
