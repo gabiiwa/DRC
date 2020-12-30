@@ -13,7 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, classification_report
 from sklearn.datasets import load_breast_cancer
 import pandas as pd
 
@@ -46,19 +46,20 @@ y_train =  np.squeeze(lb.transform(y_train))
 y_test =  np.squeeze(lb.transform(y_test))
 #%%
 est = SymbolicClassifier(parsimony_coefficient=.01,
-                         random_state=0)
+                         random_state=0,  verbose=0,)
 #esse i fazia parte do for. Decidi fazer, considerando 
 # uma única coluna, para observar o resultado apenas
-i=0
-est.fit(X_train,y_train[:,i])
 
-# %%
-
-#o resultado do y_score retorna um shape (12030, 2)
-#e o roc_auc_score pede para comparar o y_test[:,i] com um 
-#array 1d, por isso fiz y_score[:,1]
-y_score = est.predict_proba(X_test)
-print("Predict_proba:")
-roc_auc_score(y_test[:,i], y_score[:,1],multi_class='ovr')
-
-# %%
+for i in range(y_train.shape[1]):
+    print('-'*80+'\n'+str(i)+'\n'+'-'*80)
+    est.fit(X_train,y_train[:,i])
+    
+    #o resultado do y_score retorna um shape (12030, 2)
+    #e o roc_auc_score pede para comparar o y_test[:,i] com um 
+    #array 1d, por isso fiz y_score[:,1]
+    y_score = est.predict_proba(X_test)
+    roc_auc = roc_auc_score(y_test[:,i], y_score[:,1],multi_class='ovr')
+    #print("Predict_proba:", roc_auc)
+    y_pred=est.predict(X_test)
+    print(classification_report(y_test[:,i], y_pred))
+#%%
