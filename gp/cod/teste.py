@@ -57,9 +57,10 @@ for i in range(y_train.shape[1]):
     #o resultado do y_score retorna um shape (12030, 2)
     #e o roc_auc_score pede para comparar o y_test[:,i] com um 
     #array 1d, por isso fiz y_score[:,1]
-    y_score = est.predict_proba(X_test)
-    roc_auc = roc_auc_score(y_test[:,i], y_score[:,1],multi_class='ovr')
+    # y_score = est.predict_proba(X_test)
+    # roc_auc = roc_auc_score(y_test[:,i], y_score[:,1],multi_class='ovr')
     #print("Predict_proba:", roc_auc)
+   
     y_pred=est.predict(X_test)
     print(classification_report(y_test[:,i], y_pred))
 #%%

@@ -38,6 +38,7 @@ from sklearn.gaussian_process.kernels import (RBF, Matern, RationalQuadratic,
                                               ExpSineSquared, DotProduct,
                                               ConstantKernel)
 
+from sklearn.preprocessing import LabelBinarizer
 from ELM import ELMClassifier
 #import re  
 import os
@@ -53,7 +54,7 @@ import os
 #from util.MLP import MLPRegressor as MLPR
 #from util.RBFNN import RBFNNRegressor, RBFNN
 #from util.LSSVR import LSSVR
-
+# make_function
 from scipy import stats
 
 from sklearn.ensemble import ExtraTreesClassifier
@@ -117,7 +118,7 @@ def build_model(train_dataset):
     layers.Dropout(0.1),
     # layers.Dense(64, activation='relu'),
     
-    layers.Dense(1)
+    layers.Dense(1)#6
   ])
 
   optimizer = tf.keras.optimizers.RMSprop(0.001)
@@ -299,6 +300,7 @@ for run in range(run0, n_runs):
             print (tk, tn)
             target                          = dataset['target_names'][tk]
             y      , y_test                 = dataset['y_train'][tk], dataset['y_test'][tk]
+            #labelbinizer
             dataset_name, X      , X_test   = dataset['name'], dataset['X_train'], dataset['X_test']
             n_samples_train, n_features     = dataset['n_samples'], dataset['n_features']
             task, normalize                 = dataset['task'], dataset['normalize']
@@ -320,10 +322,15 @@ for run in range(run0, n_runs):
             print(s)     
             
             X = pd.DataFrame(X).fillna(0).values
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=random_seed)  
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=random_seed) 
+            
+            lb = LabelBinarizer()
+            lb.fit(y_train)
+            y_train_label =  np.squeeze(lb.transform(y_train))
+           
             model = build_model(cenarios[cont])
             callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', patience=20)
-            model.fit(X_train, y_train, epochs=150, batch_size=1024,
+            model.fit(X_train, y_train_label, epochs=150, batch_size=1024,
              verbose=1,callbacks=callback)
             predictions = model.predict_classes(X_test)
             model.summary()

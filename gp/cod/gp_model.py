@@ -38,7 +38,7 @@ logical = make_function(function=_logical,
                         arity=4)
 
 #%%
-from sklearn.datasets import load_breast_cancer
+# from sklearn.datasets import load_breast_cancer
 
 pd.options.display.float_format = '{:.3f}'.format
 datasets = [
