@@ -1,0 +1,1331 @@
+Nome:tempoAcomp
+count    5054.000000
+mean       17.764939
+std        14.320183
+min         1.000000
+25%         5.000000
+50%        14.000000
+75%        29.000000
+max        51.000000
+Name: tempoAcomp, dtype: float64
+
+Nome:estagioI_alb
+count    2482.000000
+mean        1.433924
+std         0.516423
+min         1.000000
+25%         1.000000
+50%         1.000000
+75%         2.000000
+max         3.000000
+Name: estagioI_alb, dtype: float64
+
+Nome:estagioF_alb
+count    2133.000000
+mean        1.383497
+std         0.487315
+min         1.000000
+25%         1.000000
+50%         1.000000
+75%         2.000000
+max         3.000000
+Name: estagioF_alb, dtype: float64
+
+Nome:creatinina_inicial
+count    6115.000000
+mean        1.328741
+std         0.817987
+min         0.100000
+25%         0.900000
+50%         1.120000
+75%         1.500000
+max        20.500000
+Name: creatinina_inicial, dtype: float64
+
+Nome:creatinina_final
+count    4555.000000
+mean        1.424654
+std         1.111397
+min         0.020000
+25%         0.890000
+50%         1.100000
+75%         1.500000
+max        15.700000
+Name: creatinina_final, dtype: float64
+
+Nome:albumina_inicial
+count    180.000000
+mean       4.095556
+std        0.626971
+min        1.000000
+25%        3.875000
+50%        4.100000
+75%        4.400000
+max        6.700000
+Name: albumina_inicial, dtype: float64
+
+Nome:albumina_final
+count    13.000000
+mean      3.896154
+std       0.651224
+min       2.600000
+25%       3.300000
+50%       4.020000
+75%       4.300000
+max       4.800000
+Name: albumina_final, dtype: float64
+
+Nome:rel_alb_creat_uauc_inicial
+count    2777.000000
+mean       13.719240
+std       154.132515
+min         0.010000
+25%         0.060000
+50%         0.120000
+75%         0.440000
+max      5148.000000
+Name: rel_alb_creat_uauc_inicial, dtype: float64
+
+Nome:rel_alb_creat_uauc_final
+count    1069.000000
+mean        7.040309
+std        70.142753
+min         0.010000
+25%         0.070000
+50%         0.130000
+75%         0.400000
+max      1262.000000
+Name: rel_alb_creat_uauc_final, dtype: float64
+
+Nome:proteinuria24h_inicial
+count     2802.000000
+mean       420.705632
+std       1231.601495
+min          0.010000
+25%         61.275000
+50%        127.420000
+75%        299.900000
+max      43700.000000
+Name: proteinuria24h_inicial, dtype: float64
+
+Nome:proteinuria24h_final
+count     1322.000000
+mean       570.676800
+std       1192.743133
+min          0.030000
+25%         72.000000
+50%        148.760000
+75%        480.000000
+max      15340.000000
+Name: proteinuria24h_final, dtype: float64
+
+Nome:microAlbumi_inicial
+count     2018.000000
+mean       146.917988
+std        551.864140
+min          0.040000
+25%          7.000000
+50%         19.220000
+75%         62.000000
+max      12650.000000
+Name: microAlbumi_inicial, dtype: float64
+
+Nome:microAlbumi_final
+count     531.000000
+mean      116.912486
+std       299.154798
+min         0.010000
+25%         7.280000
+50%        21.000000
+75%        79.000000
+max      3883.200000
+Name: microAlbumi_final, dtype: float64
+
+Nome:hematuria_inicial
+count       671.000000
+mean       7332.672727
+std       40896.141376
+min           1.000000
+25%         430.000000
+50%        1000.000000
+75%        2500.000000
+max      500000.000000
+Name: hematuria_inicial, dtype: float64
+
+Nome:hematuria_final
+count        85.000000
+mean      13172.335294
+std       54514.725514
+min           8.500000
+25%         500.000000
+50%        1000.000000
+75%        3000.000000
+max      428000.000000
+Name: hematuria_final, dtype: float64
+
+Nome:tshi_inicial
+count    4800.000000
+mean        6.606415
+std        15.972357
+min         0.010000
+25%         1.450000
+50%         2.390000
+75%         4.250000
+max       191.100000
+Name: tshi_inicial, dtype: float64
+
+Nome:tshi_final
+count    2667.000000
+mean       13.597214
+std        24.842788
+min         0.010000
+25%         1.620000
+50%         2.980000
+75%         6.875000
+max       164.460000
+Name: tshi_final, dtype: float64
+
+Nome:potassio_inicial
+count    5251.000000
+mean        4.573468
+std         0.610481
+min         0.800000
+25%         4.200000
+50%         4.500000
+75%         4.900000
+max         9.500000
+Name: potassio_inicial, dtype: float64
+
+Nome:potassio_final
+count    3388.000000
+mean        4.655885
+std         0.602804
+min         2.600000
+25%         4.200000
+50%         4.600000
+75%         5.000000
+max         7.900000
+Name: potassio_final, dtype: float64
+
+Nome:ureia_inicial
+count    4867.000000
+mean       46.764228
+std        31.493636
+min         1.400000
+25%        29.000000
+50%        38.000000
+75%        53.000000
+max       752.500000
+Name: ureia_inicial, dtype: float64
+
+Nome:ureia_final
+count    2832.000000
+mean       51.868319
+std        36.437222
+min         1.100000
+25%        31.000000
+50%        41.000000
+75%        61.000000
+max       734.000000
+Name: ureia_final, dtype: float64
+
+Nome:ureia24h_inicial
+count      691.000000
+mean      7774.750260
+std      11138.221231
+min          9.400000
+25%         22.800000
+50%        779.000000
+75%      14093.500000
+max      96000.000000
+Name: ureia24h_inicial, dtype: float64
+
+Nome:ureia24h_final
+count      132.000000
+mean      8895.602955
+std      13588.227852
+min          9.600000
+25%         20.750000
+50%        874.000000
+75%      14553.425000
+max      89000.000000
+Name: ureia24h_final, dtype: float64
+
+Nome:fosforo_inicial
+count    2575.000000
+mean        3.827546
+std         0.928420
+min         0.100000
+25%         3.300000
+50%         3.700000
+75%         4.300000
+max        13.500000
+Name: fosforo_inicial, dtype: float64
+
+Nome:fosforo_final
+count    1312.000000
+mean        3.925320
+std         0.978152
+min         1.400000
+25%         3.300000
+50%         3.800000
+75%         4.400000
+max        13.300000
+Name: fosforo_final, dtype: float64
+
+Nome:pth_intacto_inicial
+count    1232.000000
+mean      116.894716
+std       129.741471
+min         0.600000
+25%        45.225000
+50%        76.700000
+75%       138.940000
+max      1227.900000
+Name: pth_intacto_inicial, dtype: float64
+
+Nome:pth_intacto_final
+count     550.000000
+mean      163.079455
+std       185.334644
+min         3.000000
+25%        58.000000
+50%       103.200000
+75%       193.925000
+max      1664.060000
+Name: pth_intacto_final, dtype: float64
+
+Nome:vitaminaD_inicial
+count    3300.000000
+mean       25.080279
+std         9.746266
+min         1.300000
+25%        18.500000
+50%        24.155000
+75%        30.500000
+max        75.700000
+Name: vitaminaD_inicial, dtype: float64
+
+Nome:vitaminaD_final
+count    1863.000000
+mean       28.682802
+std        10.171605
+min         2.000000
+25%        21.715000
+50%        27.900000
+75%        33.800000
+max        90.000000
+Name: vitaminaD_final, dtype: float64
+
+Nome:fosfatase_alc_inicial
+count    1085.000000
+mean      113.666276
+std        97.668986
+min         2.500000
+25%        65.000000
+50%        87.000000
+75%       126.000000
+max       943.000000
+Name: fosfatase_alc_inicial, dtype: float64
+
+Nome:fosfatase_alc_final
+count    257.000000
+mean     109.252724
+std       81.355291
+min        2.610000
+25%       71.000000
+50%       91.000000
+75%      119.000000
+max      775.000000
+Name: fosfatase_alc_final, dtype: float64
+
+Nome:ck_inicial
+count    3422.000000
+mean      146.926189
+std       149.847298
+min         2.000000
+25%        72.000000
+50%       110.000000
+75%       172.000000
+max      3698.000000
+Name: ck_inicial, dtype: float64
+
+Nome:ck_final
+count    1754.000000
+mean      160.804453
+std       263.609479
+min         0.990000
+25%        72.000000
+50%       112.000000
+75%       178.000000
+max      8701.000000
+Name: ck_final, dtype: float64
+
+Nome:ecoae_inicial
+count    1015.000000
+mean       37.865320
+std         6.121973
+min         3.000000
+25%        34.000000
+50%        37.000000
+75%        42.000000
+max        87.000000
+Name: ecoae_inicial, dtype: float64
+
+Nome:ecoae_final
+count    169.000000
+mean      38.923077
+std        6.414270
+min       18.000000
+25%       35.000000
+50%       38.000000
+75%       43.000000
+max       59.000000
+Name: ecoae_final, dtype: float64
+
+Nome:ecoao_inicial
+count    1005.000000
+mean       31.925224
+std         4.717693
+min         2.200000
+25%        29.000000
+50%        32.000000
+75%        35.000000
+max        52.000000
+Name: ecoao_inicial, dtype: float64
+
+Nome:ecoao_final
+count    165.000000
+mean      32.424242
+std        4.568118
+min       18.000000
+25%       29.000000
+50%       32.000000
+75%       35.000000
+max       49.000000
+Name: ecoao_final, dtype: float64
+
+Nome:ecosiv_inicial
+count    996.000000
+mean      10.248896
+std        2.222749
+min        0.900000
+25%        9.000000
+50%       10.000000
+75%       12.000000
+max       25.000000
+Name: ecosiv_inicial, dtype: float64
+
+Nome:ecosiv_final
+count    165.000000
+mean      10.145455
+std        2.223090
+min        6.000000
+25%        8.000000
+50%       10.000000
+75%       12.000000
+max       18.000000
+Name: ecosiv_final, dtype: float64
+
+Nome:creatinina_1_2011
+count    1283.000000
+mean        1.669361
+std         3.390121
+min         0.400000
+25%         1.000000
+50%         1.300000
+75%         1.700000
+max       107.750000
+Name: creatinina_1_2011, dtype: float64
+
+Nome:creatinina_2_2011
+count    1604.000000
+mean        1.694744
+std         5.427743
+min         0.400000
+25%         1.000000
+50%         1.300000
+75%         1.700000
+max       200.300000
+Name: creatinina_2_2011, dtype: float64
+
+Nome:creatinina_1_2012
+count    1694.000000
+mean        1.891972
+std         8.501727
+min         0.370000
+25%         1.000000
+50%         1.270000
+75%         1.700000
+max       244.200000
+Name: creatinina_1_2012, dtype: float64
+
+Nome:creatinina_2_2012
+count    1724.000000
+mean        1.712488
+std         5.527219
+min         0.400000
+25%         1.000000
+50%         1.300000
+75%         1.700000
+max       148.730000
+Name: creatinina_2_2012, dtype: float64
+
+Nome:creatinina_1_2013
+count    1961.000000
+mean        1.526119
+std         1.039591
+min         0.070000
+25%         1.000000
+50%         1.300000
+75%         1.700000
+max        17.800000
+Name: creatinina_1_2013, dtype: float64
+
+Nome:creatinina_2_2013
+count    2093.000000
+mean        1.465112
+std         0.824521
+min         0.100000
+25%         1.000000
+50%         1.300000
+75%         1.650000
+max         7.700000
+Name: creatinina_2_2013, dtype: float64
+
+Nome:creatinina_1_2014
+count    2310.000000
+mean        1.491117
+std         4.978634
+min         0.300000
+25%         0.900000
+50%         1.195000
+75%         1.547500
+max       230.010000
+Name: creatinina_1_2014, dtype: float64
+
+Nome:creatinina_2_2014
+count    2038.000000
+mean        1.366663
+std         2.129636
+min         0.020000
+25%         0.800000
+50%         1.100000
+75%         1.500000
+max        78.840000
+Name: creatinina_2_2014, dtype: float64
+
+Nome:tfg_1_2011
+count    1283.000000
+mean       53.517054
+std        25.657355
+min         0.250000
+25%        37.370000
+50%        51.470000
+75%        65.650000
+max       189.540000
+Name: tfg_1_2011, dtype: float64
+
+Nome:tfg_2_2011
+count    1604.000000
+mean       55.236029
+std        27.732917
+min         0.180000
+25%        37.045000
+50%        51.970000
+75%        67.850000
+max       236.120000
+Name: tfg_2_2011, dtype: float64
+
+Nome:tfg_1_2012
+count    1694.000000
+mean       54.870632
+std        24.968780
+min         0.130000
+25%        38.102500
+50%        52.440000
+75%        68.160000
+max       205.530000
+Name: tfg_1_2012, dtype: float64
+
+Nome:tfg_2_2012
+count    1724.000000
+mean       54.633753
+std        26.257039
+min         0.190000
+25%        37.610000
+50%        51.700000
+75%        68.070000
+max       342.030000
+Name: tfg_2_2012, dtype: float64
+
+Nome:tfg_1_2013
+count    1961.000000
+mean       55.739352
+std        50.619727
+min         2.260000
+25%        37.500000
+50%        51.250000
+75%        67.840000
+max      1816.760000
+Name: tfg_1_2013, dtype: float64
+
+Nome:tfg_2_2013
+count    2093.000000
+mean       56.245227
+std        33.350489
+min         6.040000
+25%        37.910000
+50%        53.030000
+75%        68.320000
+max       868.730000
+Name: tfg_2_2013, dtype: float64
+
+Nome:tfg_1_2014
+count    2310.000000
+mean       61.984455
+std        30.634784
+min         0.160000
+25%        41.292500
+50%        58.280000
+75%        77.190000
+max       298.570000
+Name: tfg_1_2014, dtype: float64
+
+Nome:tfg_2_2014
+count    2038.000000
+mean       70.142390
+std       129.397492
+min         0.370000
+25%        41.680000
+50%        63.205000
+75%        87.725000
+max      5607.590000
+Name: tfg_2_2014, dtype: float64
+
+Nome:tgp_inicial
+count    4615.000000
+mean       26.155725
+std        34.229165
+min         0.210000
+25%        16.000000
+50%        21.000000
+75%        30.000000
+max      1813.000000
+Name: tgp_inicial, dtype: float64
+
+Nome:tgp_final
+count    2751.00000
+mean       26.82112
+std        17.95311
+min         1.00000
+25%        17.00000
+50%        23.00000
+75%        32.00000
+max       239.00000
+Name: tgp_final, dtype: float64
+
+Nome:hemog_glicada_inicial
+count    4786.000000
+mean        8.281369
+std         2.644311
+min         0.010000
+25%         6.300000
+50%         7.755000
+75%         9.700000
+max        26.800000
+Name: hemog_glicada_inicial, dtype: float64
+
+Nome:hemog_glicada_final
+count    3238.000000
+mean        7.938054
+std         2.202480
+min         3.000000
+25%         6.300000
+50%         7.405000
+75%         9.200000
+max        21.500000
+Name: hemog_glicada_final, dtype: float64
+
+Nome:renda_sm
+count    1317.000000
+mean        1.597289
+std         1.233359
+min         0.010000
+25%         1.000000
+50%         1.140000
+75%         1.840000
+max        19.080000
+Name: renda_sm, dtype: float64
+
+Nome:renda_familiar_sm
+count    2861.000000
+mean        2.451615
+std         1.713326
+min         0.010000
+25%         1.240000
+50%         2.110000
+75%         3.020000
+max        23.900000
+Name: renda_familiar_sm, dtype: float64
+
+Nome:tamanho_familia
+count    3634.000000
+mean        3.011833
+std         1.522064
+min         1.000000
+25%         2.000000
+50%         3.000000
+75%         4.000000
+max        18.000000
+Name: tamanho_familia, dtype: float64
+
+Nome:peso_inicial
+count    7084.000000
+mean       76.784914
+std        18.666599
+min        14.050000
+25%        64.000000
+50%        74.700000
+75%        86.750000
+max       243.750000
+Name: peso_inicial, dtype: float64
+
+Nome:peso_final
+count    7083.000000
+mean       77.119024
+std        18.850948
+min        14.050000
+25%        64.225000
+50%        74.850000
+75%        87.025000
+max       240.450000
+Name: peso_final, dtype: float64
+
+Nome:altura
+count    7014.000000
+mean      159.720559
+std        10.127128
+min         1.000000
+25%       153.000000
+50%       159.000000
+75%       167.000000
+max       199.000000
+Name: altura, dtype: float64
+
+Nome:imc
+count    6992.000000
+mean       30.203664
+std         6.820006
+min        14.340000
+25%        25.560000
+50%        29.175000
+75%        33.780000
+max        97.360000
+Name: imc, dtype: float64
+
+Nome:pas_inicial
+count    7028.000000
+mean      142.406801
+std        29.873334
+min        11.000000
+25%       120.000000
+50%       140.000000
+75%       160.000000
+max       900.000000
+Name: pas_inicial, dtype: float64
+
+Nome:pad_inicial
+count    7027.000000
+mean       86.734311
+std        36.591137
+min        10.000000
+25%        80.000000
+50%        80.000000
+75%        92.000000
+max       980.000000
+Name: pad_inicial, dtype: float64
+
+Nome:pad_final
+count    7025.000000
+mean       82.653665
+std        30.618576
+min         7.000000
+25%        70.000000
+50%        80.000000
+75%        90.000000
+max       960.000000
+Name: pad_final, dtype: float64
+
+Nome:pas_final
+count    7028.000000
+mean      136.774189
+std        26.174608
+min        11.000000
+25%       120.000000
+50%       130.000000
+75%       150.000000
+max       888.000000
+Name: pas_final, dtype: float64
+
+Nome:classe_imc
+count    7266.000000
+mean        4.367740
+std         1.369282
+min         1.000000
+25%         4.000000
+50%         4.000000
+75%         5.000000
+max         7.000000
+Name: classe_imc, dtype: float64
+
+Nome:sodio_urinario_inicial
+count    2241.000000
+mean      189.155859
+std        96.553783
+min         1.370000
+25%       126.600000
+50%       171.000000
+75%       234.000000
+max       925.000000
+Name: sodio_urinario_inicial, dtype: float64
+
+Nome:sodio_serico_inicial
+count    4039.000000
+mean      139.509582
+std         7.594565
+min         4.200000
+25%       137.000000
+50%       140.000000
+75%       142.650000
+max       175.000000
+Name: sodio_serico_inicial, dtype: float64
+
+Nome:sodio_serico_final
+count    1899.000000
+mean      139.627388
+std         7.232585
+min         1.360000
+25%       137.750000
+50%       140.000000
+75%       143.000000
+max       170.000000
+Name: sodio_serico_final, dtype: float64
+
+Nome:sodio_urinario_final
+count    1070.000000
+mean      184.812318
+std        95.749082
+min         3.180000
+25%       120.682500
+50%       166.000000
+75%       234.117500
+max       999.000000
+Name: sodio_urinario_final, dtype: float64
+
+Nome:ieca1
+count    2629.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: ieca1, dtype: float64
+
+Nome:brat2
+count    3378.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: brat2, dtype: float64
+
+Nome:betabloq3
+count    2727.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: betabloq3, dtype: float64
+
+Nome:estatina9
+count    3498.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: estatina9, dtype: float64
+
+Nome:aas8
+count    2830.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: aas8, dtype: float64
+
+Nome:diur4
+count    4422.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: diur4, dtype: float64
+
+Nome:biguadina6
+count    3295.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: biguadina6, dtype: float64
+
+Nome:sulfonura7
+count    1942.0
+mean        1.0
+std         0.0
+min         1.0
+25%         1.0
+50%         1.0
+75%         1.0
+max         1.0
+Name: sulfonura7, dtype: float64
+
+Nome:fibrato13
+count    564.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+Name: fibrato13, dtype: float64
+
+Nome:insulina
+count    778.0
+mean       1.0
+std        0.0
+min        1.0
+25%        1.0
+50%        1.0
+75%        1.0
+max        1.0
+Name: insulina, dtype: float64
+
+Nome:hemoglobina_inicial
+count    5947.000000
+mean       13.520794
+std         1.800858
+min         3.040000
+25%        12.500000
+50%        13.600000
+75%        14.700000
+max        21.100000
+Name: hemoglobina_inicial, dtype: float64
+
+Nome:hemoglobina_final
+count    4078.000000
+mean       13.201133
+std         1.829518
+min         1.700000
+25%        12.100000
+50%        13.300000
+75%        14.447500
+max        23.270000
+Name: hemoglobina_final, dtype: float64
+
+Nome:acido_urico_inicial
+count    4709.000000
+mean        5.695952
+std         1.921877
+min         0.500000
+25%         4.300000
+50%         5.500000
+75%         6.800000
+max        18.000000
+Name: acido_urico_inicial, dtype: float64
+
+Nome:acido_urico_final
+count    2681.000000
+mean        5.887520
+std         1.874258
+min         0.480000
+25%         4.500000
+50%         5.700000
+75%         7.090000
+max        12.900000
+Name: acido_urico_final, dtype: float64
+
+Nome:ferritina_inicial
+count    1449.000000
+mean      156.651781
+std       150.559649
+min         1.040000
+25%        55.000000
+50%       108.900000
+75%       210.000000
+max      1376.200000
+Name: ferritina_inicial, dtype: float64
+
+Nome:ferritina_final
+count     617.000000
+mean      163.707796
+std       163.782046
+min         1.590000
+25%        54.360000
+50%       114.800000
+75%       219.000000
+max      1294.700000
+Name: ferritina_final, dtype: float64
+
+Nome:ferro_serico_inicial
+count    1090.000000
+mean       76.707339
+std        31.524672
+min         2.500000
+25%        56.000000
+50%        75.000000
+75%        94.450000
+max       198.300000
+Name: ferro_serico_inicial, dtype: float64
+
+Nome:ferro_serico_final
+count    454.000000
+mean      73.998458
+std       31.877142
+min        2.300000
+25%       52.000000
+50%       71.550000
+75%       91.000000
+max      200.000000
+Name: ferro_serico_final, dtype: float64
+
+Nome:calcio_total_inicial
+count    3321.000000
+mean        9.601135
+std         0.863407
+min         4.600000
+25%         9.100000
+50%         9.600000
+75%        10.100000
+max        17.700000
+Name: calcio_total_inicial, dtype: float64
+
+Nome:calcio_total_final
+count    1691.000000
+mean        9.495754
+std         0.792983
+min         4.400000
+25%         9.100000
+50%         9.500000
+75%         9.900000
+max        14.000000
+Name: calcio_total_final, dtype: float64
+
+Nome:acido_folico_inicial
+count    911.000000
+mean      11.605247
+std        4.517720
+min        0.100000
+25%        8.390000
+50%       11.200000
+75%       14.250000
+max       26.300000
+Name: acido_folico_inicial, dtype: float64
+
+Nome:acido_folico_final
+count    134.000000
+mean      11.084701
+std        4.672655
+min        3.400000
+25%        7.925000
+50%       10.450000
+75%       13.900000
+max       24.600000
+Name: acido_folico_final, dtype: float64
+
+Nome:bilirrubina_inicial
+count    214.000000
+mean       0.906449
+std        1.283900
+min        0.100000
+25%        0.400000
+50%        0.600000
+75%        0.960000
+max       14.370000
+Name: bilirrubina_inicial, dtype: float64
+
+Nome:bilirrubina_final
+count    23.000000
+mean      1.675652
+std       2.774217
+min       0.170000
+25%       0.510000
+50%       0.930000
+75%       1.490000
+max      13.700000
+Name: bilirrubina_final, dtype: float64
+
+Nome:vitaminaB12_inicial
+count    2556.000000
+mean      367.777993
+std       176.219990
+min         4.660000
+25%       244.000000
+50%       332.225000
+75%       447.490000
+max      1000.000000
+Name: vitaminaB12_inicial, dtype: float64
+
+Nome:vitaminaB12_final
+count     915.000000
+mean      375.377650
+std       170.716123
+min         7.360000
+25%       249.000000
+50%       340.000000
+75%       472.885000
+max      1000.000000
+Name: vitaminaB12_final, dtype: float64
+
+Nome:colest_hdl_inicial
+count    5819.000000
+mean       48.055181
+std        13.054244
+min         4.800000
+25%        39.000000
+50%        46.000000
+75%        55.000000
+max       100.000000
+Name: colest_hdl_inicial, dtype: float64
+
+Nome:colest_hdl_final
+count    4091.000000
+mean       47.181934
+std        13.258179
+min         6.700000
+25%        38.000000
+50%        45.000000
+75%        55.000000
+max       100.000000
+Name: colest_hdl_final, dtype: float64
+
+Nome:colest_ldl_inicial
+count    3229.000000
+mean      115.635732
+std        41.890662
+min         8.000000
+25%        87.000000
+50%       112.000000
+75%       140.000000
+max       492.000000
+Name: colest_ldl_inicial, dtype: float64
+
+Nome:colest_ldl_final
+count    874.000000
+mean     106.913112
+std       37.026632
+min       10.000000
+25%       81.000000
+50%      104.500000
+75%      131.000000
+max      246.200000
+Name: colest_ldl_final, dtype: float64
+
+Nome:colest_total_inicial
+count    5964.000000
+mean      197.443628
+std        51.924989
+min         4.100000
+25%       164.000000
+50%       192.000000
+75%       224.000000
+max       990.000000
+Name: colest_total_inicial, dtype: float64
+
+Nome:colest_total_final
+count    4261.000000
+mean      186.928308
+std        48.056658
+min        10.000000
+25%       154.000000
+50%       181.000000
+75%       214.000000
+max       500.000000
+Name: colest_total_final, dtype: float64
+
+Nome:gama_glutamil_inicial
+count    440.000000
+mean      80.303182
+std      121.683610
+min        6.000000
+25%       25.000000
+50%       38.000000
+75%       76.000000
+max      862.000000
+Name: gama_glutamil_inicial, dtype: float64
+
+Nome:gama_glutamil_final
+count     53.000000
+mean     101.301887
+std       99.709691
+min       14.000000
+25%       34.000000
+50%       62.000000
+75%      139.000000
+max      354.000000
+Name: gama_glutamil_final, dtype: float64
+
+Nome:triglicerides_inicial
+count    5897.000000
+mean      176.960166
+std       140.473593
+min         7.000000
+25%        99.000000
+50%       140.000000
+75%       207.000000
+max      1893.000000
+Name: triglicerides_inicial, dtype: float64
+
+Nome:triglicerides_final
+count    4147.000000
+mean      167.650251
+std       122.350942
+min         6.000000
+25%        97.000000
+50%       137.000000
+75%       200.500000
+max      1946.000000
+Name: triglicerides_final, dtype: float64
+
+Nome:glicemia_jejum_inicial
+count    5953.000000
+mean      147.701865
+std        82.357246
+min         1.300000
+25%        94.000000
+50%       118.000000
+75%       175.000000
+max      1419.000000
+Name: glicemia_jejum_inicial, dtype: float64
+
+Nome:glicemia_jejum_final
+count    4461.000000
+mean      138.485275
+std        73.474524
+min         8.000000
+25%        92.000000
+50%       113.000000
+75%       161.000000
+max      1071.000000
+Name: glicemia_jejum_final, dtype: float64
+
+Nome:ind_sat_transf_inicial
+count    1119.000000
+mean       30.439053
+std        30.118690
+min         0.180000
+25%        19.200000
+50%        26.000000
+75%        33.400000
+max       369.000000
+Name: ind_sat_transf_inicial, dtype: float64
+
+Nome:ind_sat_transf_final
+count     545.000000
+mean       34.912165
+std       132.733671
+min         3.000000
+25%        19.000000
+50%        25.000000
+75%        34.600000
+max      3083.000000
+Name: ind_sat_transf_final, dtype: float64
+
+Nome:hbsag_inicial
+count     574.000000
+mean       20.200157
+std       293.129391
+min         0.010000
+25%         0.230000
+50%         0.315000
+75%         0.520000
+max      5237.090000
+Name: hbsag_inicial, dtype: float64
+
+Nome:hbsag_final
+count    47.000000
+mean      0.670213
+std       1.367038
+min       0.010000
+25%       0.230000
+50%       0.300000
+75%       0.405000
+max       6.800000
+Name: hbsag_final, dtype: float64
+
+Nome:antihbs_inicial
+count    1173.000000
+mean       36.710367
+std        85.054431
+min         0.010000
+25%         0.580000
+50%         2.160000
+75%        17.910000
+max       497.900000
+Name: antihbs_inicial, dtype: float64
+
+Nome:antihbs_final
+count    450.000000
+mean      69.628844
+std      106.856082
+min        0.060000
+25%        2.812500
+50%       19.535000
+75%       90.347500
+max      497.000000
+Name: antihbs_final, dtype: float64
+
+Nome:antihcv_inicial
+count    475.000000
+mean       0.652126
+std        5.097200
+min        0.010000
+25%        0.050000
+50%        0.070000
+75%        0.110000
+max       86.400000
+Name: antihcv_inicial, dtype: float64
+
+Nome:antihcv_final
+count    38.000000
+mean      2.778158
+std      11.770585
+min       0.010000
+25%       0.052500
+50%       0.090000
+75%       0.247500
+max      70.670000
+Name: antihcv_final, dtype: float64
+
